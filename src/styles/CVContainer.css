@@ -1,8 +1,13 @@
 #cvCont {
+    --CV-margin: 0.5in;
     display: flex;
-    width: 800px;
-    min-height: 600px;
-    margin: 35px auto;
+    width: clamp(400px - 2 * var(--CV-margin), calc(816px - 2 * var(--CV-margin)), 100vw - 2 * var(--CV-margin));
+    /* max-width: calc(816px - 2 * var(--CV-margin)); */
+    min-height: calc(1056px - 2 * var(--CV-margin));
+    margin: 0px auto;
     box-shadow: 0px 0px 10px 10px rgba(0, 0, 0, 0.2);
     background-color: #eef0eb;
+    padding: var(--CV-margin);
+}
+#cvHeader {
 }

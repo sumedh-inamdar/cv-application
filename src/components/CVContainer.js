@@ -5,7 +5,7 @@ export default class CVContainer extends Component {
   render() {
     return (
       <div id="cvCont">
-        <div></div>
+        <div id="cvHeader">CV Header</div>
       </div>
     );
   }
