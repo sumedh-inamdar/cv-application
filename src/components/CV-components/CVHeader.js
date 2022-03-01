@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import '../styles/CVContainer.css';
-import '../styles/CVHeader.css';
+import '../../styles/CVContainer.css';
+import '../../styles/CVHeader.css';
 import Field from './Field';
 import {
   faEnvelope,

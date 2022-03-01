@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import '../styles/Field.css';
+import '../../styles/Field.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCheck } from '@fortawesome/free-solid-svg-icons';
 
@@ -11,7 +11,7 @@ function FieldDisplay({ text, handleClick, id, className }) {
       className={className + ' fieldDisp'}
       onClick={handleClick}
       id={id + 'Disp'}>
-      {text}
+      {text || 'empty'}
     </div>
   );
 }
@@ -19,7 +19,7 @@ FieldDisplay.propTypes = {
   text: PropTypes.string.isRequired,
   handleClick: PropTypes.func.isRequired,
   id: PropTypes.string.isRequired,
-  className: PropTypes.string.isRequired
+  className: PropTypes.string
 };
 
 function FieldInput({
@@ -32,12 +32,13 @@ function FieldInput({
 }) {
   return (
     <form onSubmit={handleSubmit}>
-      <input
+      <textarea
         value={text}
         onChange={handleChange}
         id={id + 'Input'}
         maxLength={maxLength}
         className={className}
+        placeholder="Placeholder"
       />
       <FontAwesomeIcon
         icon={faCheck}
@@ -53,8 +54,8 @@ FieldInput.propTypes = {
   handleChange: PropTypes.func.isRequired,
   handleSubmit: PropTypes.func.isRequired,
   id: PropTypes.string.isRequired,
-  maxLength: PropTypes.number.isRequired,
-  className: PropTypes.string.isRequired
+  maxLength: PropTypes.number,
+  className: PropTypes.string
 };
 
 export default class Field extends Component {
@@ -104,6 +105,6 @@ Field.propTypes = {
   text: PropTypes.string.isRequired,
   handleChange: PropTypes.func.isRequired,
   id: PropTypes.string.isRequired,
-  maxLength: PropTypes.number.isRequired,
-  className: PropTypes.string.isRequired
+  maxLength: PropTypes.number,
+  className: PropTypes.string
 };

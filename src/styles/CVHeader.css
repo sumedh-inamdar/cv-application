@@ -35,6 +35,8 @@
 
 #titleDisp, #titleInput {
     font-size: 1.3rem;
+    width: fit-content;
+    height: fit-content;
 }
 
 .flexRow {

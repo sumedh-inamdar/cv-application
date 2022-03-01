@@ -1,0 +1,25 @@
+.sectionHeading {
+    font-size: 1.5rem;
+}
+.sectionBreak {
+    border: 0.5px solid black;
+    width: 100%;
+}
+
+#cvProfile{
+    display: flex;
+    flex-direction: column;
+}
+#profileInput, #profileDisp {
+    height: 100px;
+    width: 100%;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+}
+#profileInput {
+    padding: var(--CV-input-padding);
+    border-width: var(--CV-input-border);
+    width: calc(100% - 2 * (var(--CV-input-padding) + var(--CV-input-border)));
+
+}
+
