@@ -1,0 +1,7 @@
+.fieldDisp:hover {
+    background-color: azure;
+    cursor: text;
+}
+.check:hover {
+    color: green;
+}
