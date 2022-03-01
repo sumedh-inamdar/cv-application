@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import '../../styles/CVMain.css';
 import Field from './Field';
 
-export default class CVProfile extends Component {
+export default class Profile extends Component {
   constructor(props) {
     super(props);
     this.state = {

@@ -27,6 +27,8 @@
     margin-top: var(--CV-margin-inner);
 }
 #cvMainLeft {
+    display: flex;
+    flex-direction: column;
     flex: 1 0 0;
     background-color:blanchedalmond;
     margin-right: var(--CV-margin-inner);

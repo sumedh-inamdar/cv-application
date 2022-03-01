@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import '../styles/CVContainer.css';
 import CVHeader from './CV-components/CVHeader';
-import CVProfile from './CV-components/CVProfile';
+import Profile from './CV-components/Profile';
+import Skills from './CV-components/Skills';
 
 export default class CVContainer extends Component {
   render() {
@@ -10,7 +11,8 @@ export default class CVContainer extends Component {
         <CVHeader />
         <div id="cvMain">
           <div id="cvMainLeft">
-            <CVProfile />
+            <Profile />
+            <Skills />
           </div>
           <div id="cvMainRight"></div>
         </div>
