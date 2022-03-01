@@ -1,0 +1,50 @@
+#cvHeader {
+    display: flex;
+    flex-direction: row;
+}
+#cvHeaderLeft {
+    flex: 1 0 auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+#cvHeaderName {
+    display: flex;
+    flex-direction: row;
+}
+#cvHeaderRight {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    width: fit-content;
+    justify-content: space-around;
+    
+}
+
+#firstNameDisp, #firstNameInput, #lastNameDisp, #lastNameInput {
+    font-size: 2.5rem;
+    width: fit-content;
+    height: fit-content;
+}
+#firstNameInput, #lastNameInput {
+    width: 150px;
+}
+#lastNameInput, #lastNameDisp {
+    margin-left: var(--CV-margin-inner);
+}
+
+#titleDisp, #titleInput {
+    font-size: 1.3rem;
+}
+
+.flexRow {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+.contactIcon {
+    margin-right: var(--CV-margin-inner);
+}
+.contactInfo, .contactIcon {
+    font-size: 0.75rem;
+}

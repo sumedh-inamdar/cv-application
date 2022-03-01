@@ -7,6 +7,7 @@ Application that allows a user to create a CV. User can upload a photo, edit and
     - States and props
 
 ## To do list
+- [ ] Add title prop to Field component
 - [ ] Allow user to upload photo
 
 ## Bugs to fix

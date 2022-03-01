@@ -4,9 +4,13 @@ import '../styles/Field.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCheck } from '@fortawesome/free-solid-svg-icons';
 
-function FieldDisplay({ text, handleClick, id }) {
+function FieldDisplay({ text, handleClick, id, className }) {
   return (
-    <div className="fieldDisp" onClick={handleClick} id={id + 'disp'}>
+    //fix the className later
+    <div
+      className={className + ' fieldDisp'}
+      onClick={handleClick}
+      id={id + 'Disp'}>
       {text}
     </div>
   );
@@ -14,13 +18,27 @@ function FieldDisplay({ text, handleClick, id }) {
 FieldDisplay.propTypes = {
   text: PropTypes.string.isRequired,
   handleClick: PropTypes.func.isRequired,
-  id: PropTypes.string.isRequired
+  id: PropTypes.string.isRequired,
+  className: PropTypes.string.isRequired
 };
 
-function FieldInput({ text, handleChange, handleSubmit, id }) {
+function FieldInput({
+  text,
+  handleChange,
+  handleSubmit,
+  id,
+  maxLength,
+  className
+}) {
   return (
     <form onSubmit={handleSubmit}>
-      <input value={text} onChange={handleChange} id={id + 'input'} />
+      <input
+        value={text}
+        onChange={handleChange}
+        id={id + 'Input'}
+        maxLength={maxLength}
+        className={className}
+      />
       <FontAwesomeIcon
         icon={faCheck}
         onClick={handleSubmit}
@@ -34,7 +52,9 @@ FieldInput.propTypes = {
   text: PropTypes.string.isRequired,
   handleChange: PropTypes.func.isRequired,
   handleSubmit: PropTypes.func.isRequired,
-  id: PropTypes.string.isRequired
+  id: PropTypes.string.isRequired,
+  maxLength: PropTypes.number.isRequired,
+  className: PropTypes.string.isRequired
 };
 
 export default class Field extends Component {
@@ -59,16 +79,23 @@ export default class Field extends Component {
   }
 
   render() {
-    const { text, handleChange, id } = this.props;
+    const { text, handleChange, id, className, maxLength } = this.props;
 
     return this.state.mode === 'display' ? (
-      <FieldDisplay text={text} handleClick={this.handleClick} id={id} />
+      <FieldDisplay
+        text={text}
+        handleClick={this.handleClick}
+        id={id}
+        className={className}
+      />
     ) : (
       <FieldInput
         text={text}
         handleChange={handleChange}
         handleSubmit={this.handleSubmit}
         id={id}
+        maxLength={maxLength}
+        className={className}
       />
     );
   }
@@ -76,5 +103,7 @@ export default class Field extends Component {
 Field.propTypes = {
   text: PropTypes.string.isRequired,
   handleChange: PropTypes.func.isRequired,
-  id: PropTypes.string.isRequired
+  id: PropTypes.string.isRequired,
+  maxLength: PropTypes.number.isRequired,
+  className: PropTypes.string.isRequired
 };
