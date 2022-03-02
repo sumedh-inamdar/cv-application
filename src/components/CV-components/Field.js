@@ -4,12 +4,14 @@ import '../../styles/Field.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCheck } from '@fortawesome/free-solid-svg-icons';
 
-function FieldDisplay({ text, handleClick, id, className }) {
+function FieldDisplay({ text, handleClick, handleHover, id, className }) {
   return (
     //fix the className later
     <div
       className={className + ' fieldDisp'}
       onClick={handleClick}
+      onMouseEnter={handleHover}
+      onMouseLeave={handleHover}
       id={id + 'Disp'}>
       {text || 'empty'}
     </div>
@@ -18,6 +20,7 @@ function FieldDisplay({ text, handleClick, id, className }) {
 FieldDisplay.propTypes = {
   text: PropTypes.string.isRequired,
   handleClick: PropTypes.func.isRequired,
+  handleHover: PropTypes.func,
   id: PropTypes.string.isRequired,
   className: PropTypes.string
 };
@@ -31,7 +34,7 @@ function FieldInput({
   className
 }) {
   return (
-    <form onSubmit={handleSubmit}>
+    <form onSubmit={handleSubmit} className="fieldForm">
       <textarea
         value={text}
         onChange={handleChange}
@@ -80,12 +83,14 @@ export default class Field extends Component {
   }
 
   render() {
-    const { text, handleChange, id, className, maxLength } = this.props;
+    const { text, handleChange, handleHover, id, className, maxLength } =
+      this.props;
 
     return this.state.mode === 'display' ? (
       <FieldDisplay
         text={text}
         handleClick={this.handleClick}
+        handleHover={handleHover}
         id={id}
         className={className}
       />
@@ -104,6 +109,7 @@ export default class Field extends Component {
 Field.propTypes = {
   text: PropTypes.string.isRequired,
   handleChange: PropTypes.func.isRequired,
+  handleHover: PropTypes.func,
   id: PropTypes.string.isRequired,
   maxLength: PropTypes.number,
   className: PropTypes.string

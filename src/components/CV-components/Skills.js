@@ -3,6 +3,8 @@ import uniqid from 'uniqid';
 import AddButton from './AddButton';
 import Field from './Field';
 import '../../styles/CVMain.css';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faTrash } from '@fortawesome/free-solid-svg-icons';
 
 export default class Skills extends Component {
   constructor(props) {
@@ -13,6 +15,8 @@ export default class Skills extends Component {
     };
     this.changeState = this.changeState.bind(this);
     this.addSkill = this.addSkill.bind(this);
+    this.toggleDeleteSkill = this.toggleDeleteSkill.bind(this);
+    this.deleteSkill = this.deleteSkill.bind(this);
   }
   changeState(event) {
     const skillID = event.target.id.split('Input')[0];
@@ -30,6 +34,27 @@ export default class Skills extends Component {
       currSkill: { text: 'New Skill!', id: uniqid() }
     });
   }
+  deleteSkill(event) {
+    const skillID = event.target.closest('li').id;
+    this.setState({
+      skills: this.state.skills.filter((skill) => skill.id != skillID)
+    });
+  }
+  toggleDeleteSkill(event) {
+    const trashElement = event.target.closest('li').querySelector('.trashIcon');
+
+    const isValidMouseEnter =
+      event.type === 'mouseenter' &&
+      trashElement.classList.contains('visHidden');
+
+    const isValidMouseLeave =
+      event.type === 'mouseleave' &&
+      !trashElement.classList.contains('visHidden');
+
+    if (isValidMouseEnter || isValidMouseLeave) {
+      trashElement.classList.toggle('visHidden');
+    }
+  }
   render() {
     const { skills } = this.state;
     return (
@@ -38,14 +63,32 @@ export default class Skills extends Component {
         <hr className="sectionBreak"></hr>
         <ul className="skillsUL">
           {skills.map((skill) => (
-            <li key={skill.id} className="skillLI">
-              <Field
-                text={skill.text}
-                handleChange={this.changeState}
-                id={skill.id}
-                maxLength={100}
-                className="cvText"
-              />
+            <li
+              key={skill.id}
+              id={skill.id}
+              onMouseEnter={this.toggleDeleteSkill}
+              onMouseLeave={this.toggleDeleteSkill}
+              className="skillLI">
+              <div className="skillItemFlex">
+                <Field
+                  text={skill.text}
+                  handleChange={this.changeState}
+                  id={skill.id}
+                  maxLength={100}
+                  className="cvText"
+                />
+                <FontAwesomeIcon
+                  icon={faTrash}
+                  onClick={this.deleteSkill}
+                  className="trashIcon visHidden"
+                />
+              </div>
+
+              {/* Need to add delete button on hover
+              0. Add trash icon here
+              1. Create function to toggle classList on trash icon element that displays element
+              2. Pass in function as prop to Field
+              3. Prop gets passed to onMouseEnter and onMouseLeave attribute for FieldDisplay */}
             </li>
           ))}
         </ul>

@@ -2,6 +2,14 @@
     background-color: azure;
     cursor: text;
 }
+.check {
+    margin: 5px;
+    font-size: 1.5rem;
+}
 .check:hover {
     color: green;
+}
+.fieldForm {
+    display: flex;
+    align-items: center;
 }

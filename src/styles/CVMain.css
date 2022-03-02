@@ -24,7 +24,7 @@
   width: calc(100% - 2 * (var(--CV-input-padding) + var(--CV-input-border)));
 }
 #profileDisp {
-    margin-bottom: var(--CV-margin-inner);
+  margin-bottom: var(--CV-margin-inner);
 }
 
 .skillsUL {
@@ -32,6 +32,24 @@
 }
 .skillLI {
   margin: var(--CV-margin-inner) 0px;
+}
+.skillLI::marker {
+  vertical-align: middle;
+}
+.skillItemFlex {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+.skillItemFlex > div {
+  flex: 1 1 auto;
+}
+.trashIcon {
+  margin-right: 10px;
+}
+.visHidden {
+  visibility: hidden;
 }
 .addSkillButton {
   width: 100%;
@@ -44,5 +62,5 @@
   cursor: pointer;
 }
 .cvText {
-    font-size: 0.75rem;
+  font-size: 0.75rem;
 }
