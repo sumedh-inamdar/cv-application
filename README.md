@@ -12,5 +12,6 @@ Application that allows a user to create a CV. User can upload a photo, edit and
 
 ## Bugs to fix
 - [ ] Fix header / footer width when total screen size is less than 400px
+- [ ] Trash icon does not disappear after editing skill
 
 ## Future work

@@ -21,7 +21,7 @@ FieldDisplay.propTypes = {
   text: PropTypes.string.isRequired,
   handleClick: PropTypes.func.isRequired,
   handleHover: PropTypes.func,
-  id: PropTypes.string.isRequired,
+  id: PropTypes.string,
   className: PropTypes.string
 };
 
@@ -56,7 +56,7 @@ FieldInput.propTypes = {
   text: PropTypes.string.isRequired,
   handleChange: PropTypes.func.isRequired,
   handleSubmit: PropTypes.func.isRequired,
-  id: PropTypes.string.isRequired,
+  id: PropTypes.string,
   maxLength: PropTypes.number,
   className: PropTypes.string
 };
@@ -110,7 +110,7 @@ Field.propTypes = {
   text: PropTypes.string.isRequired,
   handleChange: PropTypes.func.isRequired,
   handleHover: PropTypes.func,
-  id: PropTypes.string.isRequired,
+  id: PropTypes.string,
   maxLength: PropTypes.number,
   className: PropTypes.string
 };
