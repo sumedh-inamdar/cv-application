@@ -1,15 +1,21 @@
 .fieldDisp:hover {
-    background-color: azure;
-    cursor: text;
+  background-color: azure;
+  cursor: text;
 }
 .check {
-    margin: 5px;
-    font-size: 1.5rem;
+  margin: 5px;
+  font-size: 1.5rem;
 }
 .check:hover {
-    color: green;
+  color: green;
 }
 .fieldForm {
-    display: flex;
-    align-items: center;
+  display: flex;
+  align-items: center;
+}
+.monthPicker {
+  width: min-content;
+}
+.yearPicker {
+  width: 55px;
 }

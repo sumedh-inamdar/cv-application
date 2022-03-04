@@ -1,3 +1,19 @@
+.jobContainer {
+  display: flex;
+}
+.jobContainer__left {
+  flex: 1 0 0;
+}
+.jobContainer__right {
+  flex: 3 0 0;
+}
 .job__company {
-    font-weight: bold;
+  font-weight: bold;
+}
+
+.startRow {
+  display: flex;
+}
+.startRow > * {
+    margin-right: 4px;
 }

@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import '../../styles/commonStyles.css';
 import '../../styles/Field.css';
 import FieldDisplay from './FieldDisplay';
 import FieldTextArea from './FieldTextArea';
@@ -64,7 +65,8 @@ export default class Field extends Component {
       case 'monthDropdown':
         return (
           <MonthPicker
-            defaultValue={'select month'}
+            short
+            defaultValue={'mo'}
             year={year} // mandatory
             required={true} // default is false
             value={getMonthNum(text)} // mandatory
@@ -74,16 +76,15 @@ export default class Field extends Component {
               this.handleSubmit();
               console.log(month);
             }}
-            id={'month'}
             name={'month'}
-            classes={'classes'}
+            classes={'monthPicker cvText'}
             optionClasses={'option classes'}
           />
         );
       case 'yearDropdown':
         return (
           <YearPicker
-            defaultValue={'select year'}
+            defaultValue={'yr'}
             start={1950} // default is 1900
             reverse // default is ASCENDING
             required={true} // default is false
@@ -95,9 +96,8 @@ export default class Field extends Component {
               this.handleSubmit();
               console.log(year);
             }}
-            id={'year'}
             name={'year'}
-            classes={'classes'}
+            classes={'yearPicker cvText'}
             optionClasses={'option classes'}
           />
         );
