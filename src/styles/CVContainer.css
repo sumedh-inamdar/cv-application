@@ -1,10 +1,3 @@
-:root {
-    --CV-margin-border: 0.5in;
-    --CV-margin-inner: 10px;
-    --CV-input-padding: 4px;
-    --CV-input-border: 2px;
-}
-
 #cvCont {
     display: flex;
     flex-direction: column;

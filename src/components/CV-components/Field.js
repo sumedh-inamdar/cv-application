@@ -1,65 +1,10 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import '../../styles/Field.css';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faCheck } from '@fortawesome/free-solid-svg-icons';
-
-function FieldDisplay({ text, handleClick, handleHover, id, className }) {
-  return (
-    //fix the className later
-    <div
-      className={className + ' fieldDisp'}
-      onClick={handleClick}
-      onMouseEnter={handleHover}
-      onMouseLeave={handleHover}
-      id={id + 'Disp'}>
-      {text || 'empty'}
-    </div>
-  );
-}
-FieldDisplay.propTypes = {
-  text: PropTypes.string.isRequired,
-  handleClick: PropTypes.func.isRequired,
-  handleHover: PropTypes.func,
-  id: PropTypes.string,
-  className: PropTypes.string
-};
-
-function FieldInput({
-  text,
-  handleChange,
-  handleSubmit,
-  id,
-  maxLength,
-  className
-}) {
-  return (
-    <form onSubmit={handleSubmit} className="fieldForm">
-      <textarea
-        value={text}
-        onChange={handleChange}
-        id={id + 'Input'}
-        maxLength={maxLength}
-        className={className}
-        placeholder="Placeholder"
-      />
-      <FontAwesomeIcon
-        icon={faCheck}
-        onClick={handleSubmit}
-        className="check"
-        title="Submit"
-      />
-    </form>
-  );
-}
-FieldInput.propTypes = {
-  text: PropTypes.string.isRequired,
-  handleChange: PropTypes.func.isRequired,
-  handleSubmit: PropTypes.func.isRequired,
-  id: PropTypes.string,
-  maxLength: PropTypes.number,
-  className: PropTypes.string
-};
+import FieldDisplay from './FieldDisplay';
+import FieldTextArea from './FieldTextArea';
+import { YearPicker, MonthPicker } from 'react-dropdown-date';
+import { getMonthText, getMonthNum } from '../../utilities/constants';
 
 export default class Field extends Component {
   constructor(props) {
@@ -71,9 +16,9 @@ export default class Field extends Component {
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
-  handleClick() {
+  handleClick(editMode) {
     this.setState({
-      mode: 'input'
+      mode: editMode
     });
   }
   handleSubmit() {
@@ -83,31 +28,86 @@ export default class Field extends Component {
   }
 
   render() {
-    const { text, handleChange, handleHover, id, className, maxLength } =
-      this.props;
+    const {
+      text,
+      year,
+      editMode,
+      handleChange,
+      handleHover,
+      id,
+      className,
+      maxLength
+    } = this.props;
 
-    return this.state.mode === 'display' ? (
-      <FieldDisplay
-        text={text}
-        handleClick={this.handleClick}
-        handleHover={handleHover}
-        id={id}
-        className={className}
-      />
-    ) : (
-      <FieldInput
-        text={text}
-        handleChange={handleChange}
-        handleSubmit={this.handleSubmit}
-        id={id}
-        maxLength={maxLength}
-        className={className}
-      />
-    );
+    switch (this.state.mode) {
+      case 'display':
+        return (
+          <FieldDisplay
+            text={text}
+            handleClick={() => this.handleClick(editMode)}
+            handleHover={handleHover}
+            id={id}
+            className={className}
+          />
+        );
+      case 'textarea':
+        return (
+          <FieldTextArea
+            text={text}
+            handleChange={handleChange}
+            handleSubmit={this.handleSubmit}
+            id={id}
+            maxLength={maxLength}
+            className={className}
+          />
+        );
+      case 'monthDropdown':
+        return (
+          <MonthPicker
+            defaultValue={'select month'}
+            year={year} // mandatory
+            required={true} // default is false
+            value={getMonthNum(text)} // mandatory
+            onChange={(month) => {
+              const psuedoEvent = { target: { value: getMonthText(month) } };
+              handleChange(psuedoEvent);
+              this.handleSubmit();
+              console.log(month);
+            }}
+            id={'month'}
+            name={'month'}
+            classes={'classes'}
+            optionClasses={'option classes'}
+          />
+        );
+      case 'yearDropdown':
+        return (
+          <YearPicker
+            defaultValue={'select year'}
+            start={1950} // default is 1900
+            reverse // default is ASCENDING
+            required={true} // default is false
+            value={text} // mandatory
+            onChange={(year) => {
+              // mandatory
+              const psuedoEvent = { target: { value: year } };
+              handleChange(psuedoEvent);
+              this.handleSubmit();
+              console.log(year);
+            }}
+            id={'year'}
+            name={'year'}
+            classes={'classes'}
+            optionClasses={'option classes'}
+          />
+        );
+    }
   }
 }
 Field.propTypes = {
   text: PropTypes.string.isRequired,
+  year: PropTypes.string,
+  editMode: PropTypes.string.isRequired,
   handleChange: PropTypes.func.isRequired,
   handleHover: PropTypes.func,
   id: PropTypes.string,

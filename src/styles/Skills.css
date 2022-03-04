@@ -1,0 +1,28 @@
+.skillsUL {
+  padding-left: 25px;
+}
+.skillLI {
+  margin: var(--CV-margin-inner) 0px;
+}
+.skillLI::marker {
+  vertical-align: middle;
+}
+.skillItemFlex {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+.skillItemFlex > div {
+  flex: 1 1 auto;
+}
+.addSkillButton {
+  width: 100%;
+  background-color: aliceblue;
+  border: 1px solid blue;
+  border-radius: 10px;
+}
+.addSkillButton:hover {
+  background-color: hsl(208, 100%, 77%);
+  cursor: pointer;
+}

@@ -39,11 +39,6 @@
     height: fit-content;
 }
 
-.flexRow {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-}
 .contactIcon {
     margin-right: var(--CV-margin-inner);
 }

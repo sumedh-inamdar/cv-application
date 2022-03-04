@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import '../../styles/commonStyles.css';
 import '../../styles/CVContainer.css';
 import '../../styles/CVHeader.css';
 import Field from './Field';
@@ -39,12 +40,14 @@ export default class CVHeader extends Component {
           <div id="cvHeaderName">
             <Field
               text={this.state.firstName}
+              editMode="textarea"
               handleChange={this.changeState}
               id="firstName"
               maxLength={15}
             />
             <Field
               text={this.state.lastName}
+              editMode="textarea"
               handleChange={this.changeState}
               id="lastName"
               maxLength={15}
@@ -52,6 +55,7 @@ export default class CVHeader extends Component {
           </div>
           <Field
             text={this.state.title}
+            editMode="textarea"
             handleChange={this.changeState}
             id="title"
             maxLength={35}
@@ -66,6 +70,7 @@ export default class CVHeader extends Component {
             />
             <Field
               text={this.state.website}
+              editMode="textarea"
               handleChange={this.changeState}
               id="website"
               maxLength={50}
@@ -80,6 +85,7 @@ export default class CVHeader extends Component {
             />
             <Field
               text={this.state.linkedin}
+              editMode="textarea"
               handleChange={this.changeState}
               id="location"
               maxLength={50}
@@ -94,6 +100,7 @@ export default class CVHeader extends Component {
             />
             <Field
               text={this.state.email}
+              editMode="textarea"
               handleChange={this.changeState}
               id="email"
               maxLength={50}
@@ -108,6 +115,7 @@ export default class CVHeader extends Component {
             />
             <Field
               text={this.state.phone}
+              editMode="textarea"
               handleChange={this.changeState}
               id="phone"
               maxLength={15}
@@ -122,6 +130,7 @@ export default class CVHeader extends Component {
             />
             <Field
               text={this.state.location}
+              editMode="textarea"
               handleChange={this.changeState}
               id="location"
               maxLength={50}

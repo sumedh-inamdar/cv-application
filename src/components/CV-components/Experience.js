@@ -11,8 +11,10 @@ export default class Experience extends Component {
       currJob: {
         title: 'Title',
         company: 'Company',
-        startDate: 'Month, Year',
-        endDate: 'Month, Year',
+        startMonth: 'Start Month',
+        startYear: 'Start Year',
+        endMonth: undefined,
+        endYear: undefined,
         tasks: [
           { name: 'Task 1', id: uniqid() },
           { name: 'Task 2', id: uniqid() },
@@ -31,8 +33,10 @@ export default class Experience extends Component {
       currJob: {
         title: 'Title',
         company: 'Company',
-        startDate: 'Month, Year',
-        endDate: 'Month, Year',
+        startMonth: 'Start Month',
+        startYear: 'Start Year',
+        endMonth: undefined,
+        endYear: undefined,
         tasks: [
           { name: 'Task 1', id: uniqid() },
           { name: 'Task 2', id: uniqid() },

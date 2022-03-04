@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import '../../styles/CVMain.css';
+import '../../styles/commonStyles.css';
+import '../../styles/Profile.css';
 import Field from './Field';
 
 export default class Profile extends Component {
@@ -23,6 +24,7 @@ export default class Profile extends Component {
         <hr className="sectionBreak"></hr>
         <Field
           text={this.state.profile}
+          editMode="textarea"
           handleChange={this.changeState}
           id="profile"
           maxLength={500}

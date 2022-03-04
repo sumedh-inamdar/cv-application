@@ -2,7 +2,8 @@ import React, { Component } from 'react';
 import uniqid from 'uniqid';
 import AddButton from './AddButton';
 import Field from './Field';
-import '../../styles/CVMain.css';
+import '../../styles/commonStyles.css';
+import '../../styles/Skills.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTrash } from '@fortawesome/free-solid-svg-icons';
 
@@ -72,6 +73,7 @@ export default class Skills extends Component {
               <div className="skillItemFlex">
                 <Field
                   text={skill.text}
+                  editMode="textarea"
                   handleChange={this.changeState}
                   id={skill.id}
                   maxLength={100}

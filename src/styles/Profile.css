@@ -1,0 +1,20 @@
+#cvProfile {
+  display: flex;
+  flex-direction: column;
+  height: fit-content;
+}
+#profileInput,
+#profileDisp {
+  min-height: 100px;
+  width: 100%;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+}
+#profileInput {
+  padding: var(--CV-input-padding);
+  border-width: var(--CV-input-border);
+  width: calc(100% - 2 * (var(--CV-input-padding) + var(--CV-input-border)));
+}
+#profileDisp {
+  margin-bottom: var(--CV-margin-inner);
+}
