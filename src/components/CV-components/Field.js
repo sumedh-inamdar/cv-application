@@ -4,8 +4,9 @@ import '../../styles/commonStyles.css';
 import '../../styles/Field.css';
 import FieldDisplay from './FieldDisplay';
 import FieldTextArea from './FieldTextArea';
-import { YearPicker, MonthPicker } from 'react-dropdown-date';
-import { getMonthText, getMonthNum } from '../../utilities/constants';
+import Calendar from 'react-calendar';
+import '../../styles/Calendar.css';
+import { format } from 'date-fns';
 
 export default class Field extends Component {
   constructor(props) {
@@ -31,7 +32,7 @@ export default class Field extends Component {
   render() {
     const {
       text,
-      year,
+      date,
       editMode,
       handleChange,
       handleHover,
@@ -62,43 +63,17 @@ export default class Field extends Component {
             className={className}
           />
         );
-      case 'monthDropdown':
+      case 'reactCalendar':
         return (
-          <MonthPicker
-            short
-            defaultValue={'mo'}
-            year={year} // mandatory
-            required={true} // default is false
-            value={getMonthNum(text)} // mandatory
-            onChange={(month) => {
-              const psuedoEvent = { target: { value: getMonthText(month) } };
-              handleChange(psuedoEvent);
+          <Calendar
+            value={date}
+            onChange={(value) => {
+              handleChange(value);
               this.handleSubmit();
-              console.log(month);
             }}
-            name={'month'}
-            classes={'monthPicker cvText'}
-            optionClasses={'option classes'}
-          />
-        );
-      case 'yearDropdown':
-        return (
-          <YearPicker
-            defaultValue={'yr'}
-            start={1950} // default is 1900
-            reverse // default is ASCENDING
-            required={true} // default is false
-            value={text} // mandatory
-            onChange={(year) => {
-              // mandatory
-              const psuedoEvent = { target: { value: year } };
-              handleChange(psuedoEvent);
-              this.handleSubmit();
-              console.log(year);
-            }}
-            name={'year'}
-            classes={'yearPicker cvText'}
-            optionClasses={'option classes'}
+            maxDetail="year"
+            minDetail="decade"
+            formatMonth={(locale, date) => format(date, 'MMM')}
           />
         );
     }
@@ -106,6 +81,7 @@ export default class Field extends Component {
 }
 Field.propTypes = {
   text: PropTypes.string.isRequired,
+  date: PropTypes.oneOfType([PropTypes.object, PropTypes.string]),
   year: PropTypes.string,
   editMode: PropTypes.string.isRequired,
   handleChange: PropTypes.func.isRequired,

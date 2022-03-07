@@ -11,32 +11,22 @@ export default class Experience extends Component {
       currJob: {
         title: 'Title',
         company: 'Company',
-        startMonth: 'Month',
-        startYear: 'Year',
-        endMonth: 'Month',
-        endYear: 'Year',
-        tasks: [
-          { name: 'Task 1', id: uniqid() },
-          { name: 'Task 2', id: uniqid() },
-          { name: 'Task 3', id: uniqid() }
-        ],
+        startDate: 'Start Date',
+        endDate: 'End Date',
         id: uniqid()
       }
     };
-    this.addTask = this.addTask.bind(this);
     this.addJob = this.addJob.bind(this);
+    this.deleteJob = this.deleteJob.bind(this);
   }
-  addTask() {}
   addJob() {
     this.setState({
       jobs: [...this.state.jobs, this.state.currJob],
       currJob: {
         title: 'Title',
         company: 'Company',
-        startMonth: 'Month',
-        startYear: 'Year',
-        endMonth: 'Month',
-        endYear: 'Year',
+        startDate: 'Start Date',
+        endDate: 'End Date',
         tasks: [
           { name: 'Task 1', id: uniqid() },
           { name: 'Task 2', id: uniqid() },
@@ -44,6 +34,11 @@ export default class Experience extends Component {
         ],
         id: uniqid()
       }
+    });
+  }
+  deleteJob(jobID) {
+    this.setState({
+      jobs: this.state.jobs.filter((job) => job.id !== jobID)
     });
   }
   changeState(event, jobID, jobProperty) {
@@ -69,7 +64,7 @@ export default class Experience extends Component {
             <Job
               key={job.id}
               job={job}
-              addTask={this.addTask}
+              deleteJob={() => this.deleteJob(job.id)}
               handleChange={(event, jobProperty) =>
                 this.changeState(event, job.id, jobProperty)
               }

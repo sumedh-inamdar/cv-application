@@ -1,5 +1,6 @@
 .jobContainer {
   display: flex;
+  margin-bottom: var(--CV-margin-inner);
 }
 .jobContainer__left {
   flex: 1 0 0;
@@ -7,13 +8,46 @@
 .jobContainer__right {
   flex: 3 0 0;
 }
-.job__company {
+.job__title {
   font-weight: bold;
+  font-size: 1rem;
+}
+.job__company {
+    font-size: 1rem;
 }
 
 .startRow {
   display: flex;
 }
 .startRow > * {
-    margin-right: 4px;
+  margin-right: 4px;
+}
+
+/* Tasks */
+.tasksUL {
+  padding-left: 10px;
+}
+.taskLI {
+  margin: var(--CV-margin-inner) 0px;
+}
+.taskItemFlex {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+.taskItemFlex > div {
+  flex: 1 1 auto;
+}
+.job__buttonContainer {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    align-items: center;
+}
+.job__addTaskButton, .job__deleteJobButton {
+  width: 100%;
+  background-color: aliceblue;
+  border: 1px solid lightblue;
+  border-radius: 10px;
 }

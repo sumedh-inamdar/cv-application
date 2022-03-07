@@ -4,45 +4,82 @@ import AddButton from './AddButton';
 import Field from './Field';
 import '../../styles/commonStyles.css';
 import '../../styles/Job.css';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faTrash } from '@fortawesome/free-solid-svg-icons';
+import uniqid from 'uniqid';
+import {
+  convertDateToString,
+  returnDate
+} from '../../utilities/helperFunctions';
 
 export default class Job extends Component {
   constructor(props) {
     super(props);
+    this.state = {
+      tasks: [{ name: 'List duties / achievements', id: uniqid() }],
+      currTask: { name: 'List duties / achievements', id: uniqid() }
+    };
+    this.addTask = this.addTask.bind(this);
+    this.deleteTask = this.deleteTask.bind(this);
+  }
+  addTask() {
+    this.setState({
+      tasks: [...this.state.tasks, this.state.currTask],
+      currTask: { name: 'List duties / achievements', id: uniqid() }
+    });
+  }
+  changeState(event, taskID) {
+    this.setState({
+      tasks: this.state.tasks.map((task) =>
+        task.id === taskID ? { name: event.target.value, id: task.id } : task
+      )
+    });
+  }
+  deleteTask(event) {
+    const taskID = event.target.closest('li').id;
+    this.setState({
+      tasks: this.state.tasks.filter((task) => task.id != taskID)
+    });
+  }
+  toggleDeleteTask(event) {
+    const trashElement = event.target.closest('li').querySelector('.trashIcon');
+
+    const isValidMouseEnter =
+      event.type === 'mouseenter' &&
+      trashElement.classList.contains('visHidden');
+
+    const isValidMouseLeave =
+      event.type === 'mouseleave' &&
+      !trashElement.classList.contains('visHidden');
+
+    if (isValidMouseEnter || isValidMouseLeave) {
+      trashElement.classList.toggle('visHidden');
+    }
   }
   render() {
-    const { job, addTask, handleChange } = this.props;
+    const { job, deleteJob, handleChange } = this.props;
     return (
       <div id={job.id} className="jobContainer">
         <div className="jobContainer__left">
           <div className="startRow">
             <Field
-              text={job.startMonth}
-              year={job.startYear}
-              editMode="monthDropdown"
-              handleChange={(event) => handleChange(event, 'startMonth')}
-              className="job__startMonth cvText"
+              text={convertDateToString(job.startDate)}
+              date={returnDate(job.startDate)}
+              editMode="reactCalendar"
+              handleChange={(value) =>
+                handleChange({ target: { value } }, 'startDate')
+              }
             />
-            <Field
-              text={job.startYear}
-              editMode="yearDropdown"
-              handleChange={(event) => handleChange(event, 'startYear')}
-              className="job__startYear cvText"
-            />
-            <span className="cvText"> to</span>
+            <span className=""> to</span>
           </div>
           <div className="startRow">
             <Field
-              text={job.endMonth}
-              year={job.endYear}
-              editMode="monthDropdown"
-              handleChange={(event) => handleChange(event, 'endMonth')}
-              className="job__endMonth cvText"
-            />
-            <Field
-              text={job.endYear}
-              editMode="yearDropdown"
-              handleChange={(event) => handleChange(event, 'endYear')}
-              className="job__endYear cvText"
+              text={convertDateToString(job.endDate)}
+              date={returnDate(job.endDate)}
+              editMode="reactCalendar"
+              handleChange={(value) =>
+                handleChange({ target: { value } }, 'endDate')
+              }
             />
           </div>
         </div>
@@ -51,20 +88,53 @@ export default class Job extends Component {
             text={job.title}
             editMode="textarea"
             handleChange={(event) => handleChange(event, 'title')}
-            className="job__title cvText"
+            className="job__title"
           />
           <Field
             text={job.company}
             editMode="textarea"
             handleChange={(event) => handleChange(event, 'company')}
-            className="job__company cvText"
+            className="job__company"
           />
-
-          <AddButton
-            clickHandler={addTask}
-            buttonText="Add Task"
-            className="addTaskButton"
-          />
+          <ul className="tasksUL">
+            {this.state.tasks.map((task) => (
+              <li
+                key={task.id}
+                id={task.id}
+                onMouseEnter={this.toggleDeleteTask}
+                onMouseLeave={this.toggleDeleteTask}
+                className="taskLI">
+                <div className="taskItemFlex">
+                  <Field
+                    text={task.name}
+                    editMode="textarea"
+                    handleChange={(event) => this.changeState(event, task.id)}
+                    id={task.id}
+                    maxLength={100}
+                    className="cvText"
+                  />
+                  <FontAwesomeIcon
+                    icon={faTrash}
+                    onClick={this.deleteTask}
+                    className="trashIcon visHidden"
+                  />
+                </div>
+              </li>
+            ))}
+          </ul>
+          {/* add container div and add button to delete job */}
+          <div className="job__buttonContainer">
+            <AddButton
+              clickHandler={this.addTask}
+              buttonText="Add duty / achievement"
+              className="job__addTaskButton"
+            />
+            <AddButton
+              clickHandler={deleteJob}
+              buttonText="Delete Job"
+              className="job__deleteJobButton"
+            />
+          </div>
         </div>
       </div>
     );
@@ -72,6 +142,6 @@ export default class Job extends Component {
 }
 Job.propTypes = {
   job: PropTypes.object.isRequired,
-  addTask: PropTypes.func.isRequired,
+  deleteJob: PropTypes.func.isRequired,
   handleChange: PropTypes.func.isRequired
 };

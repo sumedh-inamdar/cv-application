@@ -85,12 +85,6 @@ export default class Skills extends Component {
                   className="trashIcon visHidden"
                 />
               </div>
-
-              {/* Need to add delete button on hover
-              0. Add trash icon here
-              1. Create function to toggle classList on trash icon element that displays element
-              2. Pass in function as prop to Field
-              3. Prop gets passed to onMouseEnter and onMouseLeave attribute for FieldDisplay */}
             </li>
           ))}
         </ul>
