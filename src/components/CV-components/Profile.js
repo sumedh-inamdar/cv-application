@@ -11,10 +11,9 @@ export default class Profile extends Component {
     };
     this.changeState = this.changeState.bind(this);
   }
-  changeState(event) {
-    const key = event.target.id.split('Input')[0];
+  changeState(event, property) {
     this.setState({
-      [key]: event.target.value
+      [property]: event.target.value
     });
   }
   render() {
@@ -25,8 +24,7 @@ export default class Profile extends Component {
         <Field
           text={this.state.profile}
           editMode="textarea"
-          handleChange={this.changeState}
-          id="profile"
+          handleChange={(event) => this.changeState(event, 'profile')}
           maxLength={500}
           className="cvText"
         />

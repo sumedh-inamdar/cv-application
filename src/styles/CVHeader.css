@@ -1,47 +1,75 @@
 #cvHeader {
-    display: flex;
-    flex-direction: row;
+  height: 290px;
+  /* width: 100%; */
+  background-color: #284b63;
+  margin-bottom: var(--CV-margin-inner);
+  /* padding: var(--CV-margin-border) 0px 0px var(--CV-margin-border); */
+  display: flex;
+  flex-direction: column;
+  color: #f4f9e9;
+  border-bottom-right-radius: 15px;
+  padding-bottom: 15px;
 }
-#cvHeaderLeft {
-    flex: 1 0 auto;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
+#cvHeaderTop {
+  flex: 1 0 auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: top;
+  padding: var(--CV-margin-border) 0px 10px var(--CV-margin-border);
 }
 #cvHeaderName {
-    display: flex;
-    flex-direction: row;
+  display: flex;
+  flex-direction: column;
 }
-#cvHeaderRight {
-    display: flex;
-    flex-direction: column;
-    height: 100%;
-    width: fit-content;
-    justify-content: space-around;
-    
-}
-
-#firstNameDisp, #firstNameInput, #lastNameDisp, #lastNameInput {
-    font-size: 2.5rem;
-    width: fit-content;
-    height: fit-content;
-}
-#firstNameInput, #lastNameInput {
-    width: 150px;
-}
-#lastNameInput, #lastNameDisp {
-    margin-left: var(--CV-margin-inner);
+#cvHeaderBottom {
+  display: flex;
+  flex-direction: column;
+  height: fit-content;
+  /* width: 100%; */
+  justify-content: flex-end;
+  background-color: hsl(204, 42%, 37%);
+  padding-left: var(--CV-margin-border);
+  padding-top: 10px;
+  padding-bottom: inherit;
+  border-bottom-right-radius: inherit;
 }
 
-#titleDisp, #titleInput {
-    font-size: 1.3rem;
-    width: fit-content;
-    height: fit-content;
+.firstName__disp,
+.firstName__textarea,
+.lastName__disp,
+.lastName__textarea {
+  font-size: 2rem;
+  width: fit-content;
+  height: fit-content;
+  font-weight: bold;
+}
+.firstName__textarea,
+#lastName__textarea {
+  font-size: 1.5rem;
+  width: 155px;
+  height: 30px;
+  background-color: inherit;
+  color: inherit;
+  border-radius: 1px solid black;
+  outline: 1px solid black;
 }
 
+.title__disp,
+.title__textarea {
+  font-size: 1.3rem;
+  width: fit-content;
+  height: fit-content;
+  margin-top: 5px;
+  font-style: italic;
+}
+
+.contactInfo {
+  margin: 4px 0px;
+}
 .contactIcon {
-    margin-right: var(--CV-margin-inner);
+  margin-right: var(--CV-margin-inner);
 }
-.contactInfo, .contactIcon {
-    font-size: 0.75rem;
+.contactInfo,
+.contactIcon {
+  font-size: 0.85rem;
 }

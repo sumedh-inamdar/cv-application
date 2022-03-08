@@ -1,0 +1,25 @@
+.degreeContainer {
+  display: flex;
+  margin-bottom: var(--CV-margin-inner);
+}
+.degreeContainer__left {
+  flex: 1 0 0;
+}
+.degreeContainer__right {
+  flex: 3 0 0;
+}
+.startRow {
+  display: flex;
+}
+.degree__buttonContainer {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  align-items: center;
+}
+.degree__deleteJobButton {
+  width: 100%;
+  background-color: aliceblue;
+  border: 1px solid lightblue;
+  border-radius: 10px;
+}

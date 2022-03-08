@@ -2,6 +2,8 @@
   display: flex;
   flex-direction: column;
   height: fit-content;
+  padding-left: var(--CV-margin-border);
+  margin-top: 15px;
 }
 #profileInput,
 #profileDisp {

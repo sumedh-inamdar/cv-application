@@ -16,53 +16,52 @@ export default class CVHeader extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      firstName: 'Sumedh',
-      lastName: 'Inamdar',
-      title: 'Software Engineer',
-      website: 'github.com/sumedh-inamdar',
-      linkedin: 'linkedin.com/sinamdar',
-      email: 'sxxx@gmail.com',
-      phone: 'XXX-XXX-XXXX',
-      location: 'San Francisco'
+      firstName: 'First Name',
+      lastName: 'Last Name',
+      title: 'Title',
+      website: 'github / personal',
+      linkedin: 'linkedin',
+      email: 'email',
+      phone: 'phone',
+      location: 'location'
     };
     this.changeState = this.changeState.bind(this);
   }
-  changeState(event) {
-    const key = event.target.id.split('Input')[0];
+  changeState(event, property) {
     this.setState({
-      [key]: event.target.value
+      [property]: event.target.value
     });
   }
   render() {
     return (
       <div id="cvHeader">
-        <div id="cvHeaderLeft">
+        <div id="cvHeaderTop">
           <div id="cvHeaderName">
             <Field
               text={this.state.firstName}
               editMode="textarea"
-              handleChange={this.changeState}
-              id="firstName"
+              handleChange={(event) => this.changeState(event, 'firstName')}
+              className="firstName"
               maxLength={15}
             />
             <Field
               text={this.state.lastName}
               editMode="textarea"
-              handleChange={this.changeState}
-              id="lastName"
+              handleChange={(event) => this.changeState(event, 'lastName')}
+              className="lastName"
               maxLength={15}
             />
           </div>
           <Field
             text={this.state.title}
             editMode="textarea"
-            handleChange={this.changeState}
-            id="title"
+            handleChange={(event) => this.changeState(event, 'title')}
+            className="title"
             maxLength={35}
           />
         </div>
-        <div id="cvHeaderRight">
-          <div className="flexRow" id="websiteLink">
+        <div id="cvHeaderBottom">
+          <div className="flexRow contactInfo" id="websiteLink">
             <FontAwesomeIcon
               icon={faGlobe}
               className="contactIcon"
@@ -71,13 +70,12 @@ export default class CVHeader extends Component {
             <Field
               text={this.state.website}
               editMode="textarea"
-              handleChange={this.changeState}
-              id="website"
+              handleChange={(event) => this.changeState(event, 'website')}
               maxLength={50}
-              className="contactInfo"
+              className="websiteInfo"
             />
           </div>
-          <div className="flexRow" id="linkedIn">
+          <div className="flexRow contactInfo" id="linkedIn">
             <FontAwesomeIcon
               icon={faLinkedin}
               className="contactIcon"
@@ -86,55 +84,51 @@ export default class CVHeader extends Component {
             <Field
               text={this.state.linkedin}
               editMode="textarea"
-              handleChange={this.changeState}
-              id="location"
+              handleChange={(event) => this.changeState(event, 'linkedin')}
               maxLength={50}
-              className="contactInfo"
+              className="linkedInInfo"
             />
           </div>
-          <div className="flexRow" id="emailLink">
+          <div className="flexRow contactInfo" id="emailLink">
             <FontAwesomeIcon
               icon={faEnvelope}
               className="contactIcon"
-              title="Website / Github"
+              title="Email"
             />
             <Field
               text={this.state.email}
               editMode="textarea"
-              handleChange={this.changeState}
-              id="email"
+              handleChange={(event) => this.changeState(event, 'email')}
               maxLength={50}
-              className="contactInfo"
+              className="emailInfo"
             />
           </div>
-          <div className="flexRow" id="phoneNumber">
+          <div className="flexRow contactInfo" id="phoneNumber">
             <FontAwesomeIcon
               icon={faPhone}
               className="contactIcon"
-              title="Website / Github"
+              title="Phone"
             />
             <Field
               text={this.state.phone}
               editMode="textarea"
-              handleChange={this.changeState}
-              id="phone"
+              handleChange={(event) => this.changeState(event, 'phone')}
               maxLength={15}
-              className="contactInfo"
+              className="phoneInfo"
             />
           </div>
-          <div className="flexRow" id="location">
+          <div className="flexRow contactInfo" id="location">
             <FontAwesomeIcon
               icon={faLocationPin}
               className="contactIcon"
-              title="Website / Github"
+              title="Location"
             />
             <Field
               text={this.state.location}
               editMode="textarea"
-              handleChange={this.changeState}
-              id="location"
+              handleChange={(event) => this.changeState(event, 'location')}
               maxLength={50}
-              className="contactInfo"
+              className="locationInfo"
             />
           </div>
         </div>

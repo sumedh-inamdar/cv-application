@@ -5,6 +5,7 @@ import '../../styles/Field.css';
 import FieldDisplay from './FieldDisplay';
 import FieldTextArea from './FieldTextArea';
 import Calendar from 'react-calendar';
+import Dropdown from './Dropdown';
 import '../../styles/Calendar.css';
 import { format } from 'date-fns';
 
@@ -34,9 +35,9 @@ export default class Field extends Component {
       text,
       date,
       editMode,
+      options,
       handleChange,
       handleHover,
-      id,
       className,
       maxLength
     } = this.props;
@@ -48,8 +49,7 @@ export default class Field extends Component {
             text={text}
             handleClick={() => this.handleClick(editMode)}
             handleHover={handleHover}
-            id={id}
-            className={className}
+            className={className + '__disp'}
           />
         );
       case 'textarea':
@@ -58,9 +58,8 @@ export default class Field extends Component {
             text={text}
             handleChange={handleChange}
             handleSubmit={this.handleSubmit}
-            id={id}
             maxLength={maxLength}
-            className={className}
+            className={className + '__textarea'}
           />
         );
       case 'reactCalendar':
@@ -76,6 +75,17 @@ export default class Field extends Component {
             formatMonth={(locale, date) => format(date, 'MMM')}
           />
         );
+      case 'dropdown':
+        return (
+          <Dropdown
+            value={text}
+            options={options}
+            onChange={(value) => {
+              handleChange(value);
+              this.handleSubmit();
+            }}
+          />
+        );
     }
   }
 }
@@ -86,7 +96,7 @@ Field.propTypes = {
   editMode: PropTypes.string.isRequired,
   handleChange: PropTypes.func.isRequired,
   handleHover: PropTypes.func,
-  id: PropTypes.string,
   maxLength: PropTypes.number,
-  className: PropTypes.string
+  className: PropTypes.string,
+  options: PropTypes.array
 };

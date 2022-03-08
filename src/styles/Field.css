@@ -2,6 +2,9 @@
   background-color: azure;
   cursor: text;
 }
+#cvHeader .fieldDisp:hover{
+  background-color: hsl(204, 42%, 37%);
+}
 .check {
   margin: 5px;
   font-size: 1.5rem;

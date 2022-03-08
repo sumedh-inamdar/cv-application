@@ -1,3 +1,7 @@
+#cvSkills {
+  padding-left: var(--CV-margin-border);
+  margin-top: 25px;
+}
 .skillsUL {
   padding-left: 25px;
 }

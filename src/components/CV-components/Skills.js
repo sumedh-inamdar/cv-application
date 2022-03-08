@@ -19,8 +19,7 @@ export default class Skills extends Component {
     this.toggleDeleteSkill = this.toggleDeleteSkill.bind(this);
     this.deleteSkill = this.deleteSkill.bind(this);
   }
-  changeState(event) {
-    const skillID = event.target.id.split('Input')[0];
+  changeState(event, skillID) {
     this.setState({
       skills: this.state.skills.map((skill) =>
         skill.id === skillID
@@ -35,8 +34,7 @@ export default class Skills extends Component {
       currSkill: { text: 'New Skill!', id: uniqid() }
     });
   }
-  deleteSkill(event) {
-    const skillID = event.target.closest('li').id;
+  deleteSkill(skillID) {
     this.setState({
       skills: this.state.skills.filter((skill) => skill.id != skillID)
     });
@@ -66,7 +64,6 @@ export default class Skills extends Component {
           {skills.map((skill) => (
             <li
               key={skill.id}
-              id={skill.id}
               onMouseEnter={this.toggleDeleteSkill}
               onMouseLeave={this.toggleDeleteSkill}
               className="skillLI">
@@ -74,14 +71,13 @@ export default class Skills extends Component {
                 <Field
                   text={skill.text}
                   editMode="textarea"
-                  handleChange={this.changeState}
-                  id={skill.id}
+                  handleChange={(event) => this.changeState(event, skill.id)}
                   maxLength={100}
                   className="cvText"
                 />
                 <FontAwesomeIcon
                   icon={faTrash}
-                  onClick={this.deleteSkill}
+                  onClick={() => this.deleteSkill(skill.id)}
                   className="trashIcon visHidden"
                 />
               </div>

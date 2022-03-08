@@ -100,7 +100,6 @@ export default class Job extends Component {
             {this.state.tasks.map((task) => (
               <li
                 key={task.id}
-                id={task.id}
                 onMouseEnter={this.toggleDeleteTask}
                 onMouseLeave={this.toggleDeleteTask}
                 className="taskLI">
@@ -109,7 +108,6 @@ export default class Job extends Component {
                     text={task.name}
                     editMode="textarea"
                     handleChange={(event) => this.changeState(event, task.id)}
-                    id={task.id}
                     maxLength={100}
                     className="cvText"
                   />

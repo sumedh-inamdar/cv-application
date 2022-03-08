@@ -5,7 +5,8 @@
   --CV-input-border: 2px;
 }
 .sectionHeading {
-  font-size: 1.5rem;
+  font-size: 1.2rem;
+  font-weight: bold;
 }
 .sectionBreak {
   border: 0.5px solid black;
