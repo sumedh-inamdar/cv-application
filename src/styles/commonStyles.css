@@ -1,5 +1,5 @@
 :root {
-  --CV-margin-border: 0.5in;
+  --CV-margin-border: 0.35in;
   --CV-margin-inner: 10px;
   --CV-input-padding: 4px;
   --CV-input-border: 2px;
@@ -7,16 +7,18 @@
 .sectionHeading {
   font-size: 1.2rem;
   font-weight: bold;
+  margin-bottom: 10px;
 }
 .sectionBreak {
   border: 0.5px solid black;
   width: 100%;
+  padding-right: var(--CV-margin-border);
 }
-.cvText {
-    font-size: 0.75rem;
+.cvText__disp {
+    font-size: 1rem;
   }
 .trashIcon {
-  margin-right: 10px;
+  margin: 0px 10px;
 }
 .visHidden {
   visibility: hidden;
@@ -25,6 +27,9 @@
   display: flex;
   flex-direction: row;
   align-items: center;
+}
+.buttonContainer {
+  display: flex;
 }
 
 

@@ -43,6 +43,9 @@ export default class CVHeader extends Component {
               handleChange={(event) => this.changeState(event, 'firstName')}
               className="firstName"
               maxLength={15}
+              cols={10}
+              rows={1}
+              placeholder="First Name"
             />
             <Field
               text={this.state.lastName}
@@ -50,6 +53,9 @@ export default class CVHeader extends Component {
               handleChange={(event) => this.changeState(event, 'lastName')}
               className="lastName"
               maxLength={15}
+              cols={10}
+              rows={1}
+              placeholder="Last Name"
             />
           </div>
           <Field
@@ -58,6 +64,9 @@ export default class CVHeader extends Component {
             handleChange={(event) => this.changeState(event, 'title')}
             className="title"
             maxLength={35}
+            cols={15}
+            rows={1}
+            placeholder="Title"
           />
         </div>
         <div id="cvHeaderBottom">
@@ -65,7 +74,7 @@ export default class CVHeader extends Component {
             <FontAwesomeIcon
               icon={faGlobe}
               className="contactIcon"
-              title="Website / Github"
+              title="github / website"
             />
             <Field
               text={this.state.website}
@@ -73,6 +82,9 @@ export default class CVHeader extends Component {
               handleChange={(event) => this.changeState(event, 'website')}
               maxLength={50}
               className="websiteInfo"
+              cols={14}
+              rows={1}
+              placeholder="github / website"
             />
           </div>
           <div className="flexRow contactInfo" id="linkedIn">
@@ -87,6 +99,9 @@ export default class CVHeader extends Component {
               handleChange={(event) => this.changeState(event, 'linkedin')}
               maxLength={50}
               className="linkedInInfo"
+              cols={14}
+              rows={1}
+              placeholder="linkedin"
             />
           </div>
           <div className="flexRow contactInfo" id="emailLink">
@@ -101,6 +116,9 @@ export default class CVHeader extends Component {
               handleChange={(event) => this.changeState(event, 'email')}
               maxLength={50}
               className="emailInfo"
+              cols={14}
+              rows={1}
+              placeholder="email"
             />
           </div>
           <div className="flexRow contactInfo" id="phoneNumber">
@@ -115,6 +133,9 @@ export default class CVHeader extends Component {
               handleChange={(event) => this.changeState(event, 'phone')}
               maxLength={15}
               className="phoneInfo"
+              cols={14}
+              rows={1}
+              placeholder="phone"
             />
           </div>
           <div className="flexRow contactInfo" id="location">
@@ -129,6 +150,9 @@ export default class CVHeader extends Component {
               handleChange={(event) => this.changeState(event, 'location')}
               maxLength={50}
               className="locationInfo"
+              cols={14}
+              rows={1}
+              placeholder="location"
             />
           </div>
         </div>

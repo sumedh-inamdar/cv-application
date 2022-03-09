@@ -1,10 +1,21 @@
+.fieldDisp {
+  width: fit-content;
+  height: fit-content;
+}
 .fieldDisp:hover {
-  background-color: azure;
   cursor: text;
+  border-radius: 5px;
+  padding: 0px 5px;
 }
-#cvHeader .fieldDisp:hover{
-  background-color: hsl(204, 42%, 37%);
+.fieldTextArea {
+  font-family: inherit;
+  font-style: inherit;
+  color: inherit;
+  border-radius: 5px;
+  background-color: rgba(255,255, 255, 0.1);
+  outline: none;
 }
+
 .check {
   margin: 5px;
   font-size: 1.5rem;

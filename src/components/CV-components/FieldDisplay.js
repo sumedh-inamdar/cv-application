@@ -6,15 +6,16 @@ export default class FieldDisplay extends Component {
     super(props);
   }
   render() {
-    const { text, handleClick, handleHover, className } = this.props;
+    const { text, handleClick, handleHover, className, placeholder } =
+      this.props;
 
     return (
       <div
-        className={className + ' fieldDisp'}
+        className={className + '__disp fieldDisp'}
         onClick={handleClick}
         onMouseEnter={handleHover}
         onMouseLeave={handleHover}>
-        {text || 'empty'}
+        {text || placeholder}
       </div>
     );
   }
@@ -23,5 +24,6 @@ FieldDisplay.propTypes = {
   text: PropTypes.string.isRequired,
   handleClick: PropTypes.func.isRequired,
   handleHover: PropTypes.func,
-  className: PropTypes.string
+  className: PropTypes.string,
+  placeholder: PropTypes.string
 };

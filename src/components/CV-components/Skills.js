@@ -59,7 +59,7 @@ export default class Skills extends Component {
     return (
       <div id="cvSkills">
         <div className="sectionHeading">Skills</div>
-        <hr className="sectionBreak"></hr>
+        {/* <hr className="sectionBreak"></hr> */}
         <ul className="skillsUL">
           {skills.map((skill) => (
             <li
@@ -74,6 +74,9 @@ export default class Skills extends Component {
                   handleChange={(event) => this.changeState(event, skill.id)}
                   maxLength={100}
                   className="cvText"
+                  cols={14}
+                  rows={1}
+                  placeholder="Enter Skill"
                 />
                 <FontAwesomeIcon
                   icon={faTrash}

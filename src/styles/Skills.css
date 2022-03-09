@@ -1,9 +1,17 @@
 #cvSkills {
   padding-left: var(--CV-margin-border);
-  margin-top: 25px;
+  /* padding-right: var(--CV-margin-border); */
+  margin-top: 30px;
+}
+#cvSkills > * {
+  padding-right: var(--CV-margin-border);
+}
+#cvSkills .fieldDisp:hover{
+  background-color: rgba(255, 255, 255, 0.6);
 }
 .skillsUL {
-  padding-left: 25px;
+  margin-top: 0px;
+  padding-left: 15px;
 }
 .skillLI {
   margin: var(--CV-margin-inner) 0px;
@@ -21,12 +29,16 @@
   flex: 1 1 auto;
 }
 .addSkillButton {
-  width: 100%;
-  background-color: aliceblue;
-  border: 1px solid blue;
-  border-radius: 10px;
+  width: fit-content;
+  margin-left: auto;
+  background-color: #284b63;
+  color: #f4f9e9;
+  outline: none;
+  border: none;
+  border-radius: 6px;
+  padding: 5px 10px;
 }
 .addSkillButton:hover {
-  background-color: hsl(208, 100%, 77%);
+  background-color: hsl(204, 42%, 37%);
   cursor: pointer;
 }

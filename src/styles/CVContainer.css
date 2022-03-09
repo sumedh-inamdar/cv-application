@@ -11,6 +11,7 @@
   display: flex;
   flex-direction: column;
   flex: 1 0 0;
+  background-color: hsl(84, 14%, 83%);
 }
 #cvMainRight {
   display: flex;

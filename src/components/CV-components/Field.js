@@ -33,13 +33,16 @@ export default class Field extends Component {
   render() {
     const {
       text,
+      rows,
+      cols,
       date,
       editMode,
       options,
       handleChange,
       handleHover,
       className,
-      maxLength
+      maxLength,
+      placeholder
     } = this.props;
 
     switch (this.state.mode) {
@@ -49,7 +52,8 @@ export default class Field extends Component {
             text={text}
             handleClick={() => this.handleClick(editMode)}
             handleHover={handleHover}
-            className={className + '__disp'}
+            className={className}
+            placeholder={placeholder}
           />
         );
       case 'textarea':
@@ -59,7 +63,10 @@ export default class Field extends Component {
             handleChange={handleChange}
             handleSubmit={this.handleSubmit}
             maxLength={maxLength}
-            className={className + '__textarea'}
+            className={className}
+            cols={cols}
+            rows={rows}
+            placeholder={placeholder}
           />
         );
       case 'reactCalendar':
@@ -91,6 +98,8 @@ export default class Field extends Component {
 }
 Field.propTypes = {
   text: PropTypes.string.isRequired,
+  rows: PropTypes.number,
+  cols: PropTypes.number,
   date: PropTypes.oneOfType([PropTypes.object, PropTypes.string]),
   year: PropTypes.string,
   editMode: PropTypes.string.isRequired,
@@ -98,5 +107,6 @@ Field.propTypes = {
   handleHover: PropTypes.func,
   maxLength: PropTypes.number,
   className: PropTypes.string,
-  options: PropTypes.array
+  options: PropTypes.array,
+  placeholder: PropTypes.string
 };

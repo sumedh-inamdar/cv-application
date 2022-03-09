@@ -20,13 +20,16 @@ export default class Profile extends Component {
     return (
       <div id="cvProfile">
         <div className="sectionHeading">Profile</div>
-        <hr className="sectionBreak"></hr>
+        {/* <hr className="sectionBreak"></hr> */}
         <Field
           text={this.state.profile}
           editMode="textarea"
           handleChange={(event) => this.changeState(event, 'profile')}
           maxLength={500}
-          className="cvText"
+          cols={17}
+          rows={4}
+          placeholder="Profile description"
+          className="profile"
         />
       </div>
     );

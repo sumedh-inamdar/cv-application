@@ -8,16 +8,26 @@ export default class FieldTextArea extends Component {
     super(props);
   }
   render() {
-    const { text, handleChange, handleSubmit, maxLength, className } =
-      this.props;
+    const {
+      text,
+      rows,
+      cols,
+      handleChange,
+      handleSubmit,
+      maxLength,
+      className,
+      placeholder
+    } = this.props;
     return (
-      <form onSubmit={handleSubmit} className="fieldForm">
+      <form onSubmit={handleSubmit} className={className + '__form fieldForm'}>
         <textarea
           value={text}
           onChange={handleChange}
           maxLength={maxLength}
-          className={className}
-          placeholder="Placeholder"
+          className={className + '__textArea fieldTextArea'}
+          placeholder={placeholder}
+          rows={rows}
+          cols={cols}
         />
         <FontAwesomeIcon
           icon={faCheck}
@@ -31,6 +41,9 @@ export default class FieldTextArea extends Component {
 }
 FieldTextArea.propTypes = {
   text: PropTypes.string.isRequired,
+  rows: PropTypes.number,
+  placeholder: PropTypes.string,
+  cols: PropTypes.number,
   handleChange: PropTypes.func.isRequired,
   handleSubmit: PropTypes.func.isRequired,
   maxLength: PropTypes.number,
