@@ -2,12 +2,14 @@ import React, { Component } from 'react';
 import '../../styles/commonStyles.css';
 import '../../styles/Profile.css';
 import Field from './Field';
+import { exampleData } from '../../utilities/constants';
 
 export default class Profile extends Component {
   constructor(props) {
     super(props);
+    const data = exampleData.Profile;
     this.state = {
-      profile: 'I am an aspiring developer.'
+      profile: data.profile
     };
     this.changeState = this.changeState.bind(this);
   }

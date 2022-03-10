@@ -11,19 +11,21 @@ import {
 } from '@fortawesome/free-solid-svg-icons';
 import { faLinkedin } from '@fortawesome/free-brands-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { exampleData } from '../../utilities/constants';
 
 export default class CVHeader extends Component {
   constructor(props) {
     super(props);
+    const data = exampleData.CVHeader;
     this.state = {
-      firstName: 'First Name',
-      lastName: 'Last Name',
-      title: 'Title',
-      website: 'github / personal',
-      linkedin: 'linkedin',
-      email: 'email',
-      phone: 'phone',
-      location: 'location'
+      firstName: data.firstName,
+      lastName: data.lastName,
+      title: data.title,
+      website: data.website,
+      linkedin: data.linkedin,
+      email: data.email,
+      phone: data.phone,
+      location: data.location
     };
     this.changeState = this.changeState.bind(this);
   }

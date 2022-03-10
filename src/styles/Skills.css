@@ -3,7 +3,7 @@
   /* padding-right: var(--CV-margin-border); */
   margin-top: 30px;
 }
-#cvSkills > * {
+#cvSkills > .buttonContainer {
   padding-right: var(--CV-margin-border);
 }
 #cvSkills .fieldDisp:hover{
@@ -11,7 +11,8 @@
 }
 .skillsUL {
   margin-top: 0px;
-  padding-left: 15px;
+  padding: 0px;
+  list-style-type: none;
 }
 .skillLI {
   margin: var(--CV-margin-inner) 0px;

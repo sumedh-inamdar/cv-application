@@ -6,12 +6,14 @@ import '../../styles/commonStyles.css';
 import '../../styles/Skills.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTrash } from '@fortawesome/free-solid-svg-icons';
+import { exampleData } from '../../utilities/constants';
 
 export default class Skills extends Component {
   constructor(props) {
     super(props);
+    const data = exampleData.Skills;
     this.state = {
-      skills: [],
+      skills: data.skills.map((skill) => ({ text: skill, id: uniqid() })),
       currSkill: { text: 'New Skill!', id: uniqid() }
     };
     this.changeState = this.changeState.bind(this);

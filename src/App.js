@@ -9,13 +9,13 @@ export default class App extends Component {
     return (
       <div id="app">
         <Header />
-        <CVContainer ref={(el) => (this.componentRef = el)} />
         <ReactToPrint
           content={() => this.componentRef}
           trigger={() => {
             return <button>Print this out</button>;
           }}
         />
+        <CVContainer ref={(el) => (this.componentRef = el)} />
         <Footer />
       </div>
     );

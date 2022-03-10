@@ -1,3 +1,5 @@
+import uniqid from 'uniqid';
+
 export const degreeTypes = [
   { label: 'High School Diploma', value: 'hsd' },
   { label: 'GED', value: 'ged' },
@@ -13,3 +15,49 @@ export const degreeTypes = [
   { label: 'Ph.D.', value: 'phd' },
   { label: 'other', value: 'other' }
 ];
+
+export const exampleData = {
+  CVHeader: {
+    firstName: 'Sumedh',
+    lastName: 'Inamdar',
+    title: 'Software Engineer',
+    website: 'github.com/sumedh-inamdar',
+    linkedin: 'linkedin.com/in/sinamdar',
+    email: 'sxxxxxxx@gmail.com',
+    phone: '408-555-1234',
+    location: 'San Francisco'
+  },
+  Profile: {
+    profile: `Aspiring front-end developer well versed in software engineering fundamentals. 
+    Seeking to utilize broad background with excellent technical, 
+    communication, and collaboration skills to thrive as an entry-level software engineer.`
+  },
+  Skills: {
+    skills: [
+      'Data structures & Algorithms',
+      'Javascript (React)',
+      'HTML / CSS',
+      'Unit testing (Jest)',
+      'NodeJS / Express',
+      'MongoDB'
+    ]
+  },
+  Experience: {
+    jobs: [
+      {
+        id: uniqid(),
+        title: 'Software Engineer',
+        company: 'Microsoft',
+        startDate: new Date(2018, 5),
+        endDate: new Date(2019, 5),
+        duties: [
+          'Built React components for customer facing web app, improved user time on page by 2 minutes',
+          'Collaborated with team of 6 to prioritize and scope features requests by impact / visibility using Agile methodology',
+          'Wrote unit tests to cover all new features reducing bug rate by 20%',
+          'Built data model and supporting pipelines which led to discovery of new site features, boosting web revenue by 15%',
+          'Presented issues / status to senior management as required for critical product features and key milestones'
+        ]
+      }
+    ]
+  }
+};

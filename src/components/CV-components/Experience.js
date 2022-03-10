@@ -2,12 +2,20 @@ import React, { Component } from 'react';
 import AddButton from './AddButton';
 import uniqid from 'uniqid';
 import Job from './Job';
+import { exampleData } from '../../utilities/constants';
 
 export default class Experience extends Component {
   constructor(props) {
     super(props);
+    const data = exampleData.Experience;
     this.state = {
-      jobs: [],
+      jobs: data.jobs.map((job) => ({
+        title: job.title,
+        company: job.company,
+        startDate: job.startDate,
+        endDate: job.endDate,
+        id: job.id
+      })),
       currJob: {
         title: 'Title',
         company: 'Company',
@@ -27,11 +35,6 @@ export default class Experience extends Component {
         company: 'Company',
         startDate: 'Start Date',
         endDate: 'End Date',
-        tasks: [
-          { name: 'Task 1', id: uniqid() },
-          { name: 'Task 2', id: uniqid() },
-          { name: 'Task 3', id: uniqid() }
-        ],
         id: uniqid()
       }
     });

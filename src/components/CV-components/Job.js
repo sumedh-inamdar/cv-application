@@ -11,12 +11,21 @@ import {
   convertDateToString,
   returnDate
 } from '../../utilities/helperFunctions';
+import { exampleData } from '../../utilities/constants';
+
+function getTasks(dataArray, jobID) {
+  const targetJob = dataArray.find(({ id }) => id === jobID);
+  return targetJob
+    ? targetJob.duties.map((task) => ({ name: task, id: uniqid() }))
+    : [{ name: 'List duties / achievements', id: uniqid() }];
+}
 
 export default class Job extends Component {
   constructor(props) {
     super(props);
+    const data = exampleData.Experience.jobs;
     this.state = {
-      tasks: [{ name: 'List duties / achievements', id: uniqid() }],
+      tasks: getTasks(data, this.props.job.id),
       currTask: { name: 'List duties / achievements', id: uniqid() }
     };
     this.addTask = this.addTask.bind(this);
