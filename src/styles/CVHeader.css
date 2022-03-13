@@ -1,60 +1,49 @@
 #cvHeader {
-  height: 290px;
+  height: 300px;
   display: flex;
   flex-direction: column;
   color: #f4f9e9;
-  border-bottom-right-radius: 15px;
-  padding-bottom: 15px;
-}
-#cvHeaderTop {
-  flex: 1 0 auto;
-  display: flex;
-  flex-direction: column;
-  justify-content: top;
-  padding: var(--CV-margin-border) 0px 0px var(--CV-margin-border);
   background-color: #284b63;
 }
+#cvHeader .fieldTextArea {
+  background-color: rgba(255, 255, 255, 0.2);
+}
+#cvHeaderTop {
+  flex: 1 0 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: var(--CV-margin-border) 0px 0px var(--CV-margin-border);
+}
 #cvHeaderName {
+  flex: 2 0 0;
   display: flex;
   flex-direction: column;
 }
 #cvHeaderBottom {
+  flex: 1 0 0;
   display: flex;
   flex-direction: column;
   height: fit-content;
-  /* width: 100%; */
-  justify-content: flex-end;
-  background-color: hsl(204, 42%, 37%);
+  justify-content: space-between;
   padding-left: var(--CV-margin-border);
-  padding-top: 12px;
-  padding-bottom: 12px;
+  padding-bottom: 6px;
   /* border-bottom-right-radius: inherit; */
 }
-#cvHeader .fieldDisp:hover{
-  background-color: rgba(255, 255, 255, 0.2);
-}
-.firstName__disp,
-.lastName__disp {
+.firstName,
+.lastName {
+  flex: 1 0 0;
   font-size: 2rem;
+  height: 2rem;
+  font-weight: 700;
 }
-.lastName__disp,
-.lastName__textArea {
-  font-weight: bold;
+.title {
+  font-size: 1.2rem;
 }
-.firstName__textArea,
-.lastName__textArea {
-  font-size: 1.5rem;
-}
-
-.title__disp,
-.title__form {
-  font-size: 1.3rem;
+div.title,
+form.title {
+  flex: 1 0 0;
   margin-top: 10px;
-  margin-bottom: 15px;
-  font-style: italic;
-}
-.title__textArea {
-  font-size: 1.1rem;
 }
 
 .contactInfo {

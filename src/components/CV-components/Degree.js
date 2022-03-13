@@ -15,64 +15,65 @@ export default class Degree extends Component {
   }
   render() {
     const { degree, deleteDegree, handleChange } = this.props;
+
     return (
       <div id={degree.id} className="degreeContainer">
-        <div className="degreeContainer__left">
-          <div className="startRow">
-            <Field
-              text={convertDateToString(degree.startDate)}
-              date={returnDate(degree.startDate)}
-              editMode="reactCalendar"
-              handleChange={(value) =>
-                handleChange({ target: { value } }, 'startDate')
-              }
-            />
-            <span className=""> to</span>
-          </div>
-          <div className="startRow">
-            <Field
-              text={convertDateToString(degree.endDate)}
-              date={returnDate(degree.endDate)}
-              editMode="reactCalendar"
-              handleChange={(value) =>
-                handleChange({ target: { value } }, 'endDate')
-              }
-            />
-          </div>
-        </div>
-        <div className="degreeContainer__right">
-          <div className="startRow">
-            {' '}
-            <Field
-              text={degree.degree}
-              editMode="dropdown"
-              label="Degree"
-              options={degreeTypes}
-              handleChange={(event) => handleChange(event, 'degree')}
-              className="degree__degree"
-            />
-            <span className=""> in </span>
+        <div className="startRow">
+          <Field
+            text={degree.degree}
+            editMode="dropdown"
+            label="Degree"
+            options={degreeTypes}
+            handleChange={(event) => handleChange(event, 'degree')}
+            className="degree__degree"
+          />
+          {degree.degree !== 'High School Diploma' && (
             <Field
               text={degree.major}
               editMode="textarea"
               handleChange={(event) => handleChange(event, 'major')}
               className="degree__major"
+              maxLength={40}
+              cols={17}
+              rows={1}
+              placeholder="Major / Field of Study"
             />
-          </div>
-          <Field
-            text={degree.school}
-            editMode="textarea"
-            handleChange={(event) => handleChange(event, 'school')}
-            className="degree__school"
-          />
-          <div className="degree__buttonContainer">
-            <AddButton
-              clickHandler={deleteDegree}
-              buttonText="Delete Degree"
-              className="degree__deleteJobButton"
-            />
-          </div>
+          )}
         </div>
+        <Field
+          text={degree.school}
+          editMode="textarea"
+          handleChange={(event) => handleChange(event, 'school')}
+          className="degree__school"
+          maxLength={75}
+          cols={22}
+          rows={1}
+          placeholder="School / Institution"
+        />
+        <div className="startRow">
+          <Field
+            text={convertDateToString(degree.startDate)}
+            date={returnDate(degree.startDate)}
+            editMode="reactCalendar"
+            handleChange={(value) =>
+              handleChange({ target: { value } }, 'startDate')
+            }
+          />
+          <span className=""> to</span>
+          <Field
+            text={convertDateToString(degree.endDate)}
+            date={returnDate(degree.endDate)}
+            editMode="reactCalendar"
+            handleChange={(value) =>
+              handleChange({ target: { value } }, 'endDate')
+            }
+          />
+        </div>
+        <AddButton
+          clickHandler={deleteDegree}
+          buttonText="Remove Degree"
+          className="cvEditButton"
+        />
       </div>
     );
   }

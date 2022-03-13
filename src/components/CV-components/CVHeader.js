@@ -66,7 +66,7 @@ export default class CVHeader extends Component {
             handleChange={(event) => this.changeState(event, 'title')}
             className="title"
             maxLength={35}
-            cols={15}
+            cols={17}
             rows={1}
             placeholder="Title"
           />
@@ -84,7 +84,7 @@ export default class CVHeader extends Component {
               handleChange={(event) => this.changeState(event, 'website')}
               maxLength={50}
               className="websiteInfo"
-              cols={14}
+              cols={23}
               rows={1}
               placeholder="github / website"
             />
@@ -101,7 +101,7 @@ export default class CVHeader extends Component {
               handleChange={(event) => this.changeState(event, 'linkedin')}
               maxLength={50}
               className="linkedInInfo"
-              cols={14}
+              cols={23}
               rows={1}
               placeholder="linkedin"
             />
@@ -118,7 +118,7 @@ export default class CVHeader extends Component {
               handleChange={(event) => this.changeState(event, 'email')}
               maxLength={50}
               className="emailInfo"
-              cols={14}
+              cols={23}
               rows={1}
               placeholder="email"
             />
@@ -135,7 +135,7 @@ export default class CVHeader extends Component {
               handleChange={(event) => this.changeState(event, 'phone')}
               maxLength={15}
               className="phoneInfo"
-              cols={14}
+              cols={23}
               rows={1}
               placeholder="phone"
             />
@@ -152,7 +152,7 @@ export default class CVHeader extends Component {
               handleChange={(event) => this.changeState(event, 'location')}
               maxLength={50}
               className="locationInfo"
-              cols={14}
+              cols={23}
               rows={1}
               placeholder="location"
             />

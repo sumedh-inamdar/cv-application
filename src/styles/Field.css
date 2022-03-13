@@ -4,21 +4,25 @@
 }
 .fieldDisp:hover {
   cursor: text;
-  border-radius: 5px;
+  border-radius: 2px;
   padding: 0px 5px;
+  background-color: rgba(138, 122, 36, 0.75);
+  color: #f4f9e9;
 }
 .fieldTextArea {
   font-family: inherit;
   font-style: inherit;
+  font-size: inherit;
   color: inherit;
-  border-radius: 5px;
-  background-color: rgba(255,255, 255, 0.1);
   outline: none;
+  border: none;
+  padding: 0px;
+  margin: 0px;
 }
 
 .check {
-  margin: 5px;
-  font-size: 1.5rem;
+  margin: 0px 5px;
+  font-size: inherit;
 }
 .check:hover {
   color: green;

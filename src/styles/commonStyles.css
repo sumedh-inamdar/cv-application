@@ -1,13 +1,17 @@
 :root {
+  font-size: 16px;
   --CV-margin-border: 0.35in;
   --CV-margin-inner: 10px;
   --CV-input-padding: 4px;
   --CV-input-border: 2px;
 }
 .sectionHeading {
+  display: flex;
+  justify-content: space-between;
   font-size: 1.2rem;
   font-weight: bold;
   margin-bottom: 10px;
+  text-transform: uppercase;
 }
 .sectionBreak {
   border: 0.5px solid black;
@@ -15,10 +19,11 @@
   padding-right: var(--CV-margin-border);
 }
 .cvText__disp {
-    font-size: 1rem;
-  }
+  font-size: 1rem;
+}
 .trashIcon {
   margin: 0px 10px;
+  color:rgb(138, 122, 36);
 }
 .visHidden {
   visibility: hidden;
@@ -31,5 +36,27 @@
 .buttonContainer {
   display: flex;
 }
-
-
+.cvEditButton{
+  width: fit-content;
+  background-color: rgb(138, 122, 36,0.5);
+  color: #f4f9e9;
+  outline: none;
+  border: none;
+  border-radius: 3px;
+  padding: 5px 5px;
+  margin-right: 10px;
+}
+.cvEditButton:hover {
+  background-color: rgb(138, 122, 36);
+  cursor: pointer;
+  font-weight: 600;
+}
+.addIcon {
+  margin: 0px 15px;
+  color:rgb(138, 122, 36, 0.5);
+}
+.addIcon:hover {
+  color: rgb(138, 122, 36);
+  cursor: pointer;
+  font-weight: 600;
+}

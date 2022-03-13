@@ -21,8 +21,9 @@ export default class Profile extends Component {
   render() {
     return (
       <div id="cvProfile">
-        <div className="sectionHeading">Profile</div>
-        {/* <hr className="sectionBreak"></hr> */}
+        <div className="sectionHeading">
+          <div>Profile</div>
+        </div>
         <Field
           text={this.state.profile}
           editMode="textarea"

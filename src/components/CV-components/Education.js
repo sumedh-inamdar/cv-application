@@ -1,13 +1,24 @@
 import React, { Component } from 'react';
 import uniqid from 'uniqid';
-import AddButton from './AddButton';
 import Degree from './Degree';
+import '../../styles/Education.css';
+import { exampleData } from '../../utilities/constants';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faAdd } from '@fortawesome/free-solid-svg-icons';
 
 export default class Education extends Component {
   constructor(props) {
     super(props);
+    const data = exampleData.Education.degrees;
     this.state = {
-      degrees: [],
+      degrees: data.map((degree) => ({
+        startDate: degree.startDate,
+        endDate: degree.endDate,
+        school: degree.school,
+        major: degree.major,
+        degree: degree.degree,
+        id: degree.id
+      })),
       currDegree: {
         startDate: 'Start Date',
         endDate: 'End Date',
@@ -51,8 +62,14 @@ export default class Education extends Component {
   render() {
     return (
       <div id="cvEducation">
-        <div className="sectionHeading">Education</div>
-        <hr className="sectionBreak"></hr>
+        <div className="sectionHeading">
+          <div>Education</div>
+          <FontAwesomeIcon
+            icon={faAdd}
+            onClick={this.addDegree}
+            className="addIcon"
+          />{' '}
+        </div>
         <div id="degreeList">
           {this.state.degrees.map((degree) => (
             <Degree
@@ -65,11 +82,6 @@ export default class Education extends Component {
             />
           ))}
         </div>
-        <AddButton
-          clickHandler={this.addDegree}
-          buttonText="Add Degree"
-          className="addDegreeButton"
-        />
       </div>
     );
   }

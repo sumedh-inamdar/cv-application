@@ -6,8 +6,8 @@
 #cvSkills > .buttonContainer {
   padding-right: var(--CV-margin-border);
 }
-#cvSkills .fieldDisp:hover{
-  background-color: rgba(255, 255, 255, 0.6);
+#cvSkills .fieldTextArea {
+  background-color: rgba(255, 255, 255, 0.5);
 }
 .skillsUL {
   margin-top: 0px;

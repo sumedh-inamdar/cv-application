@@ -18,13 +18,21 @@ export default class FieldTextArea extends Component {
       className,
       placeholder
     } = this.props;
+
+    function handleKeyDown(event) {
+      if (event.key === 'Enter') {
+        handleSubmit();
+      }
+    }
+
     return (
-      <form onSubmit={handleSubmit} className={className + '__form fieldForm'}>
+      <form onSubmit={handleSubmit} className={className + ' fieldForm'}>
         <textarea
           value={text}
+          onKeyDown={handleKeyDown}
           onChange={handleChange}
           maxLength={maxLength}
-          className={className + '__textArea fieldTextArea'}
+          className={className + ' fieldTextArea'}
           placeholder={placeholder}
           rows={rows}
           cols={cols}

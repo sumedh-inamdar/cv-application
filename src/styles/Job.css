@@ -1,6 +1,6 @@
 .jobContainer {
   display: flex;
-  margin-bottom: var(--CV-margin-inner);
+  margin-bottom: 15px;
 }
 .jobContainer__left {
   flex: 1 0 0;
@@ -8,12 +8,12 @@
 .jobContainer__right {
   flex: 3 0 0;
 }
-.job__title {
+.job__title__disp {
   font-weight: bold;
   font-size: 1rem;
 }
-.job__company {
-    font-size: 1rem;
+.job__company__disp {
+  font-size: 1rem;
 }
 
 .startRow {
@@ -40,14 +40,23 @@
   flex: 1 1 auto;
 }
 .job__buttonContainer {
-    display: flex;
-    flex-direction: row;
-    justify-content: flex-end;
-    align-items: center;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  align-items: center;
+  padding-right: var(--CV-margin-border);
 }
-.job__addTaskButton, .job__deleteJobButton {
-  width: 100%;
-  background-color: aliceblue;
-  border: 1px solid lightblue;
-  border-radius: 10px;
+.job__buttonContainer > .buttonContainer {
+  margin: 0px 5px;
+}
+.job__addTaskButton,
+.job__deleteJobButton {
+  width: fit-content;
+  margin-left: auto;
+  background-color: #284b63;
+  color: #f4f9e9;
+  outline: none;
+  border: none;
+  border-radius: 6px;
+  padding: 5px 10px;
 }

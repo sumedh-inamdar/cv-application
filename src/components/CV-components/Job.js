@@ -17,7 +17,7 @@ function getTasks(dataArray, jobID) {
   const targetJob = dataArray.find(({ id }) => id === jobID);
   return targetJob
     ? targetJob.duties.map((task) => ({ name: task, id: uniqid() }))
-    : [{ name: 'List duties / achievements', id: uniqid() }];
+    : [{ name: 'List responsibility', id: uniqid() }];
 }
 
 export default class Job extends Component {
@@ -26,7 +26,7 @@ export default class Job extends Component {
     const data = exampleData.Experience.jobs;
     this.state = {
       tasks: getTasks(data, this.props.job.id),
-      currTask: { name: 'List duties / achievements', id: uniqid() }
+      currTask: { name: 'List responsibility', id: uniqid() }
     };
     this.addTask = this.addTask.bind(this);
     this.deleteTask = this.deleteTask.bind(this);
@@ -34,7 +34,7 @@ export default class Job extends Component {
   addTask() {
     this.setState({
       tasks: [...this.state.tasks, this.state.currTask],
-      currTask: { name: 'List duties / achievements', id: uniqid() }
+      currTask: { name: 'List responsibility', id: uniqid() }
     });
   }
   changeState(event, taskID) {
@@ -44,8 +44,7 @@ export default class Job extends Component {
       )
     });
   }
-  deleteTask(event) {
-    const taskID = event.target.closest('li').id;
+  deleteTask(taskID) {
     this.setState({
       tasks: this.state.tasks.filter((task) => task.id != taskID)
     });
@@ -122,7 +121,7 @@ export default class Job extends Component {
                   />
                   <FontAwesomeIcon
                     icon={faTrash}
-                    onClick={this.deleteTask}
+                    onClick={() => this.deleteTask(task.id)}
                     className="trashIcon visHidden"
                   />
                 </div>
@@ -133,13 +132,13 @@ export default class Job extends Component {
           <div className="job__buttonContainer">
             <AddButton
               clickHandler={this.addTask}
-              buttonText="Add duty / achievement"
-              className="job__addTaskButton"
+              buttonText="Add responsibility"
+              className="cvEditButton"
             />
             <AddButton
               clickHandler={deleteJob}
-              buttonText="Delete Job"
-              className="job__deleteJobButton"
+              buttonText="Remove Job"
+              className="cvEditButton"
             />
           </div>
         </div>

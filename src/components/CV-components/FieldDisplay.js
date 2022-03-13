@@ -11,7 +11,7 @@ export default class FieldDisplay extends Component {
 
     return (
       <div
-        className={className + '__disp fieldDisp'}
+        className={className + ' fieldDisp'}
         onClick={handleClick}
         onMouseEnter={handleHover}
         onMouseLeave={handleHover}>

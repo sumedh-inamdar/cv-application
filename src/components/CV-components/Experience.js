@@ -1,8 +1,10 @@
 import React, { Component } from 'react';
-import AddButton from './AddButton';
 import uniqid from 'uniqid';
 import Job from './Job';
 import { exampleData } from '../../utilities/constants';
+import '../../styles/Experience.css';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faAdd } from '@fortawesome/free-solid-svg-icons';
 
 export default class Experience extends Component {
   constructor(props) {
@@ -60,8 +62,14 @@ export default class Experience extends Component {
     const { jobs } = this.state;
     return (
       <div id="cvExperience">
-        <div className="sectionHeading">Experience</div>
-        <hr className="sectionBreak"></hr>
+        <div className="sectionHeading">
+          <div>Experience</div>
+          <FontAwesomeIcon
+            icon={faAdd}
+            onClick={this.addJob}
+            className="addIcon"
+          />
+        </div>
         <div id="jobList">
           {jobs.map((job) => (
             <Job
@@ -74,11 +82,6 @@ export default class Experience extends Component {
             />
           ))}
         </div>
-        <AddButton
-          clickHandler={this.addJob}
-          buttonText="Add Job"
-          className="addJobButton"
-        />
       </div>
     );
   }

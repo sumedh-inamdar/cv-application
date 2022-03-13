@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
 import uniqid from 'uniqid';
-import AddButton from './AddButton';
+// import AddButton from './AddButton';
 import Field from './Field';
 import '../../styles/commonStyles.css';
 import '../../styles/Skills.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faTrash } from '@fortawesome/free-solid-svg-icons';
+import { faAdd, faTrash } from '@fortawesome/free-solid-svg-icons';
 import { exampleData } from '../../utilities/constants';
 
 export default class Skills extends Component {
@@ -60,7 +60,14 @@ export default class Skills extends Component {
     const { skills } = this.state;
     return (
       <div id="cvSkills">
-        <div className="sectionHeading">Skills</div>
+        <div className="sectionHeading">
+          <div>Skills</div>
+          <FontAwesomeIcon
+            icon={faAdd}
+            onClick={this.addSkill}
+            className="addIcon"
+          />
+        </div>
         {/* <hr className="sectionBreak"></hr> */}
         <ul className="skillsUL">
           {skills.map((skill) => (
@@ -76,7 +83,7 @@ export default class Skills extends Component {
                   handleChange={(event) => this.changeState(event, skill.id)}
                   maxLength={100}
                   className="cvText"
-                  cols={14}
+                  cols={19}
                   rows={1}
                   placeholder="Enter Skill"
                 />
@@ -89,12 +96,6 @@ export default class Skills extends Component {
             </li>
           ))}
         </ul>
-
-        <AddButton
-          clickHandler={this.addSkill}
-          buttonText="Add Skill"
-          className="addSkillButton"
-        />
       </div>
     );
   }

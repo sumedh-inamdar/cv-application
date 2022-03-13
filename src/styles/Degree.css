@@ -1,6 +1,14 @@
 .degreeContainer {
   display: flex;
+  flex-direction: column;
   margin-bottom: var(--CV-margin-inner);
+  font-weight: 400;
+}
+.degreeContainer > div {
+  margin-bottom: 5px;
+}
+.degreeContainer > .buttonContainer {
+  margin-bottom: 30px;
 }
 .degreeContainer__left {
   flex: 1 0 0;
@@ -18,8 +26,10 @@
   align-items: center;
 }
 .degree__deleteJobButton {
-  width: 100%;
-  background-color: aliceblue;
   border: 1px solid lightblue;
   border-radius: 10px;
+}
+.degree__school__disp {
+  color: #284b63;
+  font-weight: 600;
 }

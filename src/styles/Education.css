@@ -1,0 +1,18 @@
+#cvEducation {
+  padding-left: var(--CV-margin-border);
+  margin-top: 30px;
+}
+#cvEducation > .buttonContainer {
+  padding-right: var(--CV-margin-border);
+}
+#cvEducation .cvEditButton {
+  margin-left: auto;
+}
+#cvEducation select {
+  font-family: inherit;
+  font-style: inherit;
+  color: inherit;
+  outline: none;
+  border: none;
+  width: 100px;
+}

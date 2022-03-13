@@ -12,12 +12,12 @@ export default class CVContainer extends Component {
       <div id="cvCont">
         <div id="cvMainLeft">
           <CVHeader />
-          <Profile />
           <Skills />
+          <Education />
         </div>
         <div id="cvMainRight">
+          <Profile />
           <Experience />
-          <Education />
         </div>
       </div>
     );

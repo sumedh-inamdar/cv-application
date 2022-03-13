@@ -47,7 +47,7 @@ export const exampleData = {
       {
         id: uniqid(),
         title: 'Software Engineer',
-        company: 'Microsoft',
+        company: 'Apple',
         startDate: new Date(2018, 5),
         endDate: new Date(2019, 5),
         duties: [
@@ -57,6 +57,38 @@ export const exampleData = {
           'Built data model and supporting pipelines which led to discovery of new site features, boosting web revenue by 15%',
           'Presented issues / status to senior management as required for critical product features and key milestones'
         ]
+      },
+      {
+        id: uniqid(),
+        title: 'Software Engineer Intern',
+        company: 'Google',
+        startDate: new Date(2018, 5),
+        endDate: new Date(2019, 5),
+        duties: [
+          'Built back-end components for internal tool, improved developer efficiency by 30%',
+          'Collaborated with team of 6 to prioritize and scope features requests by impact / visibility using Agile methodology',
+          'Wrote unit tests to cover all new features reducing bug rate by 20%'
+        ]
+      }
+    ]
+  },
+  Education: {
+    degrees: [
+      {
+        startDate: new Date(2010, 8),
+        endDate: new Date(2012, 4),
+        school: 'UT Austin',
+        major: 'Mechanical Engineering',
+        degree: 'M.S.',
+        id: uniqid()
+      },
+      {
+        startDate: new Date(2005, 8),
+        endDate: new Date(2009, 4),
+        school: 'UC Berkeley',
+        major: 'Mechanical Engineering',
+        degree: 'B.S.',
+        id: uniqid()
       }
     ]
   }
