@@ -40,7 +40,7 @@ export default class Education extends Component {
         endDate: 'End Date',
         school: 'School / Institution',
         major: 'Major / Field of Study',
-        degree: '(BS, MS, PhD...)',
+        degree: 'Degree',
         id: uniqid()
       }
     });

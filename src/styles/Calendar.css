@@ -1,5 +1,5 @@
 .react-calendar {
-  position: fixed;
+  position: absolute;
   z-index: 1;
   width: min-content;
   height: min-content;

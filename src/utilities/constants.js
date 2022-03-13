@@ -13,7 +13,8 @@ export const degreeTypes = [
   { label: 'J.D.', value: 'jd' },
   { label: 'M.D.', value: 'md' },
   { label: 'Ph.D.', value: 'phd' },
-  { label: 'other', value: 'other' }
+  { label: 'CC', value: 'cc' },
+  { label: 'EDD', value: 'edd' }
 ];
 
 export const exampleData = {
