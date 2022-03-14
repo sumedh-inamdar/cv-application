@@ -58,6 +58,7 @@ export default class Degree extends Component {
             handleChange={(value) =>
               handleChange({ target: { value } }, 'startDate')
             }
+            maxDate={degree.endDate}
           />
           <span className=""> to</span>
           <Field
@@ -67,13 +68,16 @@ export default class Degree extends Component {
             handleChange={(value) =>
               handleChange({ target: { value } }, 'endDate')
             }
+            minDate={degree.startDate}
           />
         </div>
-        <AddButton
-          clickHandler={deleteDegree}
-          buttonText="Remove Degree"
-          className="cvEditButton"
-        />
+        <div className="buttonContainer">
+          <AddButton
+            clickHandler={deleteDegree}
+            buttonText="Remove Degree"
+            className="cvEditButton"
+          />
+        </div>
       </div>
     );
   }

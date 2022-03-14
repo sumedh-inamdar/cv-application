@@ -8,8 +8,13 @@
 .degreeContainer > div {
   margin-bottom: 5px;
 }
-.degreeContainer > .buttonContainer {
+.degreeContainer .buttonContainer {
   margin-bottom: 30px;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  align-items: center;
+  padding-right: var(--CV-margin-border);
 }
 .degreeContainer__left {
   flex: 1 0 0;
@@ -20,17 +25,8 @@
 .startRow {
   display: flex;
 }
-.degree__buttonContainer {
-  display: flex;
-  flex-direction: row;
-  justify-content: flex-end;
-  align-items: center;
-}
-.degree__deleteJobButton {
-  border: 1px solid lightblue;
-  border-radius: 10px;
-}
-.degree__school__disp {
+
+.degree__school {
   color: #284b63;
   font-weight: 600;
 }

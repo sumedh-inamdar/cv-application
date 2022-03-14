@@ -28,8 +28,8 @@ export default class Profile extends Component {
           text={this.state.profile}
           editMode="textarea"
           handleChange={(event) => this.changeState(event, 'profile')}
-          maxLength={500}
-          cols={17}
+          maxLength={300}
+          cols={57}
           rows={4}
           placeholder="Profile description"
           className="profile"

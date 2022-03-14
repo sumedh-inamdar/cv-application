@@ -29,9 +29,7 @@ export const exampleData = {
     location: 'San Francisco'
   },
   Profile: {
-    profile: `Aspiring front-end developer well versed in software engineering fundamentals. 
-    Seeking to utilize broad background with excellent technical, 
-    communication, and collaboration skills to thrive as an entry-level software engineer.`
+    profile: `Aspiring front-end developer well versed in software engineering fundamentals. Seeking to utilize broad background with excellent technical, communication, and collaboration skills to thrive as an entry-level software engineer.`
   },
   Skills: {
     skills: [

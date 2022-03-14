@@ -3,16 +3,16 @@
   flex-direction: column;
   height: fit-content;
 }
-.profile__form,
-.profile__disp {
+form.profile,
+div.profile {
   word-wrap: break-word;
   overflow-wrap: break-word;
 }
-.profile__form {
+form.profile {
   padding: var(--CV-input-padding);
   border-width: var(--CV-input-border);
   width: calc(100% - 2 * (var(--CV-input-padding) + var(--CV-input-border)));
 }
-.profile__disp {
+div.profile {
   margin-right: var(--CV-margin-border);
 }

@@ -51,6 +51,9 @@
   cursor: pointer;
   font-weight: 600;
 }
+.buttonContainer :last-child {
+  margin-right: 0px;
+}
 .addIcon {
   margin: 0px 15px;
   color:rgb(138, 122, 36, 0.5);

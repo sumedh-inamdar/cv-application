@@ -42,7 +42,9 @@ export default class Field extends Component {
       handleHover,
       className,
       maxLength,
-      placeholder
+      placeholder,
+      maxDate,
+      minDate
     } = this.props;
 
     switch (this.state.mode) {
@@ -79,6 +81,8 @@ export default class Field extends Component {
             }}
             maxDetail="year"
             minDetail="decade"
+            maxDate={maxDate}
+            minDate={minDate}
             formatMonth={(locale, date) => format(date, 'MMM')}
           />
         );
@@ -108,5 +112,7 @@ Field.propTypes = {
   maxLength: PropTypes.number,
   className: PropTypes.string,
   options: PropTypes.array,
-  placeholder: PropTypes.string
+  placeholder: PropTypes.string,
+  maxDate: PropTypes.object,
+  minDate: PropTypes.object
 };

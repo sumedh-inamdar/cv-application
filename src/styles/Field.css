@@ -1,6 +1,7 @@
 .fieldDisp {
   width: fit-content;
   height: fit-content;
+  line-height: 1.2;
 }
 .fieldDisp:hover {
   cursor: text;
@@ -18,6 +19,7 @@
   border: none;
   padding: 0px;
   margin: 0px;
+  line-height: 1.2;
 }
 
 .check {

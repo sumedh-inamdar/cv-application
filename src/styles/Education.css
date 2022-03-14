@@ -2,9 +2,6 @@
   padding-left: var(--CV-margin-border);
   margin-top: 30px;
 }
-#cvEducation > .buttonContainer {
-  padding-right: var(--CV-margin-border);
-}
 #cvEducation .cvEditButton {
   margin-left: auto;
 }

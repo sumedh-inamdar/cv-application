@@ -8,11 +8,9 @@ export default class AddButton extends Component {
   render() {
     const { buttonText, clickHandler, className } = this.props;
     return (
-      <div className="buttonContainer">
-        <button onClick={clickHandler} className={className}>
-          {buttonText}
-        </button>
-      </div>
+      <button onClick={clickHandler} className={className}>
+        {buttonText}
+      </button>
     );
   }
 }

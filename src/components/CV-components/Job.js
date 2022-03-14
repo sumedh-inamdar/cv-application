@@ -77,6 +77,7 @@ export default class Job extends Component {
               handleChange={(value) =>
                 handleChange({ target: { value } }, 'startDate')
               }
+              maxDate={job.endDate}
             />
             <span className=""> to</span>
           </div>
@@ -88,6 +89,7 @@ export default class Job extends Component {
               handleChange={(value) =>
                 handleChange({ target: { value } }, 'endDate')
               }
+              minDate={job.startDate}
             />
           </div>
         </div>
@@ -97,12 +99,20 @@ export default class Job extends Component {
             editMode="textarea"
             handleChange={(event) => handleChange(event, 'title')}
             className="job__title"
+            maxLength={50}
+            cols={25}
+            rows={1}
+            placeholder="Job title"
           />
           <Field
             text={job.company}
             editMode="textarea"
             handleChange={(event) => handleChange(event, 'company')}
             className="job__company"
+            maxLength={50}
+            cols={25}
+            rows={1}
+            placeholder="Company"
           />
           <ul className="tasksUL">
             {this.state.tasks.map((task) => (
@@ -116,8 +126,11 @@ export default class Job extends Component {
                     text={task.name}
                     editMode="textarea"
                     handleChange={(event) => this.changeState(event, task.id)}
-                    maxLength={100}
+                    maxLength={200}
                     className="cvText"
+                    cols={37}
+                    rows={3}
+                    placeholder="Responsibility / Duty"
                   />
                   <FontAwesomeIcon
                     icon={faTrash}
@@ -129,7 +142,7 @@ export default class Job extends Component {
             ))}
           </ul>
           {/* add container div and add button to delete job */}
-          <div className="job__buttonContainer">
+          <div className="buttonContainer">
             <AddButton
               clickHandler={this.addTask}
               buttonText="Add responsibility"

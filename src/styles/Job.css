@@ -39,24 +39,11 @@
 .taskItemFlex > div {
   flex: 1 1 auto;
 }
-.job__buttonContainer {
+.jobContainer .buttonContainer {
   display: flex;
   flex-direction: row;
   justify-content: flex-end;
   align-items: center;
   padding-right: var(--CV-margin-border);
-}
-.job__buttonContainer > .buttonContainer {
   margin: 0px 5px;
-}
-.job__addTaskButton,
-.job__deleteJobButton {
-  width: fit-content;
-  margin-left: auto;
-  background-color: #284b63;
-  color: #f4f9e9;
-  outline: none;
-  border: none;
-  border-radius: 6px;
-  padding: 5px 10px;
 }
