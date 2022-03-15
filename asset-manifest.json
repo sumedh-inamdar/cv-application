@@ -1,0 +1,14 @@
+{
+  "files": {
+    "main.css": "/cv-application/static/css/main.f6650d2d.css",
+    "main.js": "/cv-application/static/js/main.2690e6d7.js",
+    "static/media/Octocat.png": "/cv-application/static/media/Octocat.983e7d4b457c979a95aa.png",
+    "index.html": "/cv-application/index.html",
+    "main.f6650d2d.css.map": "/cv-application/static/css/main.f6650d2d.css.map",
+    "main.2690e6d7.js.map": "/cv-application/static/js/main.2690e6d7.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.f6650d2d.css",
+    "static/js/main.2690e6d7.js"
+  ]
+}
