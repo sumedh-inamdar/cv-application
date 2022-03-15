@@ -12,7 +12,19 @@ export default class App extends Component {
         <ReactToPrint
           content={() => this.componentRef}
           trigger={() => {
-            return <button>Print this out</button>;
+            return <button id="pdfExportButton">Export to PDF</button>;
+          }}
+          onBeforeGetContent={() => {
+            const editElements = document.querySelectorAll('.editElement');
+            for (const element of editElements) {
+              element.classList.add('noDisplay');
+            }
+          }}
+          onAfterPrint={() => {
+            const editElements = document.querySelectorAll('.editElement');
+            for (const element of editElements) {
+              element.classList.remove('noDisplay');
+            }
           }}
         />
         <CVContainer ref={(el) => (this.componentRef = el)} />

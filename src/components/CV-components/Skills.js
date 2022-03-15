@@ -65,10 +65,9 @@ export default class Skills extends Component {
           <FontAwesomeIcon
             icon={faAdd}
             onClick={this.addSkill}
-            className="addIcon"
+            className="addIcon editElement"
           />
         </div>
-        {/* <hr className="sectionBreak"></hr> */}
         <ul className="skillsUL">
           {skills.map((skill) => (
             <li

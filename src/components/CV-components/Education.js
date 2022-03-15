@@ -80,7 +80,7 @@ export default class Education extends Component {
           <FontAwesomeIcon
             icon={faAdd}
             onClick={this.addDegree}
-            className="addIcon"
+            className="addIcon editElement"
           />{' '}
         </div>
         <div id="degreeList">

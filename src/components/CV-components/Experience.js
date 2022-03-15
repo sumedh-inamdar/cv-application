@@ -78,7 +78,7 @@ export default class Experience extends Component {
           <FontAwesomeIcon
             icon={faAdd}
             onClick={this.addJob}
-            className="addIcon"
+            className="addIcon editElement"
           />
         </div>
         <div id="jobList">

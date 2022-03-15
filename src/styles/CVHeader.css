@@ -27,7 +27,7 @@
   height: fit-content;
   justify-content: space-between;
   padding-left: var(--CV-margin-border);
-  padding-bottom: 6px;
+  padding-bottom: 10px;
   /* border-bottom-right-radius: inherit; */
 }
 .firstName,

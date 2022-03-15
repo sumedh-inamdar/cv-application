@@ -23,7 +23,7 @@
 }
 .trashIcon {
   margin: 0px 10px;
-  color:rgb(138, 122, 36);
+  color: rgb(138, 122, 36);
 }
 .visHidden {
   visibility: hidden;
@@ -36,9 +36,9 @@
 .buttonContainer {
   display: flex;
 }
-.cvEditButton{
+.cvEditButton {
   width: fit-content;
-  background-color: rgb(138, 122, 36,0.5);
+  background-color: rgb(138, 122, 36, 0.5);
   color: #f4f9e9;
   outline: none;
   border: none;
@@ -56,10 +56,36 @@
 }
 .addIcon {
   margin: 0px 15px;
-  color:rgb(138, 122, 36, 0.5);
+  color: rgb(138, 122, 36, 0.5);
 }
 .addIcon:hover {
   color: rgb(138, 122, 36);
   cursor: pointer;
   font-weight: 600;
+}
+.noDisplay {
+  display: none;
+}
+#pdfExportButton {
+  width: fit-content;
+  background-color: rgb(138, 122, 36, 0.5);
+  color: #f4f9e9;
+  outline: none;
+  border: none;
+  border-radius: 3px;
+  padding: 5px 5px;
+  margin-right: 10px;
+  font-weight: 600;
+  margin-bottom: var(--CV-margin-border);
+}
+#pdfExportButton:hover {
+  background-color: rgb(138, 122, 36);
+  cursor: pointer;
+  font-weight: 600;
+}
+.currentRow {
+  margin-top: 10px;
+}
+.currentCheckbox {
+  margin: 0.4rem;
 }

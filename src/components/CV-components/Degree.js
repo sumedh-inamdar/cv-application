@@ -58,7 +58,7 @@ export default class Degree extends Component {
             handleChange={(value) =>
               handleChange({ target: { value } }, 'startDate')
             }
-            maxDate={degree.endDate}
+            maxDate={returnDate(degree.endDate)}
           />
           <span className=""> to</span>
           {degree.current ? (
@@ -75,7 +75,10 @@ export default class Degree extends Component {
               handleChange={(value) =>
                 handleChange({ target: { value } }, 'endDate')
               }
-              minDate={degree.startDate}
+              minDate={
+                degree.startDate instanceof Date ? degree.startDate : undefined
+              }
+              maxDate={new Date()}
             />
           )}
         </div>
@@ -85,14 +88,14 @@ export default class Degree extends Component {
             buttonText="Current?"
             className={
               degree.current
-                ? 'currentButtonEnabled cvEditButton'
-                : 'cvEditButton'
+                ? 'currentButtonEnabled cvEditButton editElement'
+                : 'cvEditButton editElement'
             }
           />
           <AddButton
             clickHandler={deleteDegree}
             buttonText="Remove Degree"
-            className="cvEditButton"
+            className="cvEditButton editElement"
           />
         </div>
       </div>

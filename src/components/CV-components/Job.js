@@ -77,7 +77,7 @@ export default class Job extends Component {
               handleChange={(value) =>
                 handleChange({ target: { value } }, 'startDate')
               }
-              maxDate={job.endDate}
+              maxDate={returnDate(job.endDate)}
             />
             <span className=""> to</span>
           </div>
@@ -96,9 +96,21 @@ export default class Job extends Component {
                 handleChange={(value) =>
                   handleChange({ target: { value } }, 'endDate')
                 }
-                minDate={job.startDate}
+                minDate={
+                  job.startDate instanceof Date ? job.startDate : undefined
+                }
+                maxDate={new Date()}
               />
             )}
+          </div>
+          <div className="startRow currentRow editElement">
+            <input
+              type="checkbox"
+              id={job.id + '__checkbox'}
+              className="currentCheckbox"
+              name="current"
+            />
+            <label htmlFor={job.id + '__checkbox'}>I currently work here</label>
           </div>
         </div>
         <div className="jobContainer__right cvText">
@@ -155,19 +167,19 @@ export default class Job extends Component {
               buttonText="Current?"
               className={
                 job.current
-                  ? 'currentButtonEnabled cvEditButton'
-                  : 'cvEditButton'
+                  ? 'currentButtonEnabled cvEditButton editElement'
+                  : 'cvEditButton editElement'
               }
             />
             <AddButton
               clickHandler={this.addTask}
               buttonText="Add responsibility"
-              className="cvEditButton"
+              className="cvEditButton editElement"
             />
             <AddButton
               clickHandler={deleteJob}
               buttonText="Remove Job"
-              className="cvEditButton"
+              className="cvEditButton editElement"
             />
           </div>
         </div>

@@ -1,7 +1,7 @@
 .degreeContainer {
   display: flex;
   flex-direction: column;
-  margin-bottom: var(--CV-margin-inner);
+  /* margin-bottom: var(--CV-margin-inner); */
   font-weight: 400;
   font-size: 1rem;
 }
@@ -9,7 +9,7 @@
   margin-bottom: 5px;
 }
 .degreeContainer .buttonContainer {
-  margin-bottom: 30px;
+  margin-bottom: 10px;
   display: flex;
   flex-direction: row;
   justify-content: flex-end;

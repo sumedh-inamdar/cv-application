@@ -1,6 +1,6 @@
 .jobContainer {
   display: flex;
-  margin-bottom: 15px;
+  margin-bottom: 10px;
 }
 .jobContainer__left {
   flex: 1 0 0;
@@ -8,12 +8,9 @@
 .jobContainer__right {
   flex: 3 0 0;
 }
-.job__title__disp {
+.job__title {
   font-weight: bold;
-  font-size: 1rem;
-}
-.job__company__disp {
-  font-size: 1rem;
+  
 }
 
 .startRow {
@@ -26,9 +23,11 @@
 /* Tasks */
 .tasksUL {
   padding-left: 10px;
+  margin-bottom: 0px;
+  margin-top: 10px;
 }
 .taskLI {
-  margin: var(--CV-margin-inner) 0px;
+  margin: 10px 0px;
 }
 .taskItemFlex {
   display: flex;
