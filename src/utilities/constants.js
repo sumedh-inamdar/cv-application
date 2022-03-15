@@ -48,7 +48,8 @@ export const exampleData = {
         title: 'Software Engineer',
         company: 'Apple',
         startDate: new Date(2018, 5),
-        endDate: new Date(2019, 5),
+        endDate: new Date(2022, 2),
+        current: true,
         duties: [
           'Built React components for customer facing web app, improved user time on page by 2 minutes',
           'Collaborated with team of 6 to prioritize and scope features requests by impact / visibility using Agile methodology',
@@ -61,8 +62,9 @@ export const exampleData = {
         id: uniqid(),
         title: 'Software Engineer Intern',
         company: 'Google',
-        startDate: new Date(2018, 5),
-        endDate: new Date(2019, 5),
+        startDate: new Date(2017, 5),
+        endDate: new Date(2018, 5),
+        current: false,
         duties: [
           'Built back-end components for internal tool, improved developer efficiency by 30%',
           'Collaborated with team of 6 to prioritize and scope features requests by impact / visibility using Agile methodology',
@@ -79,7 +81,8 @@ export const exampleData = {
         school: 'UT Austin',
         major: 'Mechanical Engineering',
         degree: 'M.S.',
-        id: uniqid()
+        id: uniqid(),
+        current: false
       },
       {
         startDate: new Date(2005, 8),
@@ -87,7 +90,8 @@ export const exampleData = {
         school: 'UC Berkeley',
         major: 'Mechanical Engineering',
         degree: 'B.S.',
-        id: uniqid()
+        id: uniqid(),
+        current: false
       }
     ]
   }

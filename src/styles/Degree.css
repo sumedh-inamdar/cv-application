@@ -30,3 +30,9 @@
   color: #284b63;
   font-weight: 600;
 }
+
+.currentButtonEnabled{
+  background-color: rgb(138, 122, 36);
+  cursor: pointer;
+  font-weight: 400;
+}

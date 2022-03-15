@@ -14,7 +14,7 @@ export default class Degree extends Component {
     super(props);
   }
   render() {
-    const { degree, deleteDegree, handleChange } = this.props;
+    const { degree, deleteDegree, handleChange, markCurrent } = this.props;
 
     return (
       <div id={degree.id} className="degreeContainer">
@@ -61,17 +61,34 @@ export default class Degree extends Component {
             maxDate={degree.endDate}
           />
           <span className=""> to</span>
-          <Field
-            text={convertDateToString(degree.endDate)}
-            date={returnDate(degree.endDate)}
-            editMode="reactCalendar"
-            handleChange={(value) =>
-              handleChange({ target: { value } }, 'endDate')
-            }
-            minDate={degree.startDate}
-          />
+          {degree.current ? (
+            <Field
+              text="Current"
+              editMode="display"
+              className="currentDisplay"
+            />
+          ) : (
+            <Field
+              text={convertDateToString(degree.endDate)}
+              date={returnDate(degree.endDate)}
+              editMode="reactCalendar"
+              handleChange={(value) =>
+                handleChange({ target: { value } }, 'endDate')
+              }
+              minDate={degree.startDate}
+            />
+          )}
         </div>
         <div className="buttonContainer">
+          <AddButton
+            clickHandler={markCurrent}
+            buttonText="Current?"
+            className={
+              degree.current
+                ? 'currentButtonEnabled cvEditButton'
+                : 'cvEditButton'
+            }
+          />
           <AddButton
             clickHandler={deleteDegree}
             buttonText="Remove Degree"
@@ -85,5 +102,6 @@ export default class Degree extends Component {
 Degree.propTypes = {
   degree: PropTypes.object.isRequired,
   deleteDegree: PropTypes.func.isRequired,
-  handleChange: PropTypes.func.isRequired
+  handleChange: PropTypes.func.isRequired,
+  markCurrent: PropTypes.func.isRequired
 };

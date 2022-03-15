@@ -17,7 +17,8 @@ export default class Education extends Component {
         school: degree.school,
         major: degree.major,
         degree: degree.degree,
-        id: degree.id
+        id: degree.id,
+        current: degree.current
       })),
       currDegree: {
         startDate: 'Start Date',
@@ -25,12 +26,14 @@ export default class Education extends Component {
         school: 'School / Institution',
         major: 'Major / Field of Study',
         degree: 'Degree',
-        id: uniqid()
+        id: uniqid(),
+        current: false
       }
     };
     this.addDegree = this.addDegree.bind(this);
     this.deleteDegree = this.deleteDegree.bind(this);
     this.changeState = this.changeState.bind(this);
+    this.toggleCurrent = this.toggleCurrent.bind(this);
   }
   addDegree() {
     this.setState({
@@ -41,7 +44,8 @@ export default class Education extends Component {
         school: 'School / Institution',
         major: 'Major / Field of Study',
         degree: 'Degree',
-        id: uniqid()
+        id: uniqid(),
+        current: false
       }
     });
   }
@@ -55,6 +59,15 @@ export default class Education extends Component {
       degrees: this.state.degrees.map((degree) =>
         degree.id === degreeID
           ? { ...degree, [degreeProp]: event.target.value }
+          : degree
+      )
+    });
+  }
+  toggleCurrent(degreeID) {
+    this.setState({
+      degrees: this.state.degrees.map((degree) =>
+        degree.id === degreeID
+          ? { ...degree, current: !degree.current }
           : degree
       )
     });
@@ -79,6 +92,7 @@ export default class Education extends Component {
               handleChange={(event, degreeProperty) =>
                 this.changeState(event, degree.id, degreeProperty)
               }
+              markCurrent={() => this.toggleCurrent(degree.id)}
             />
           ))}
         </div>

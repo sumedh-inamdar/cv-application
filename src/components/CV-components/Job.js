@@ -65,7 +65,7 @@ export default class Job extends Component {
     }
   }
   render() {
-    const { job, deleteJob, handleChange } = this.props;
+    const { job, deleteJob, handleChange, markCurrent } = this.props;
     return (
       <div id={job.id} className="jobContainer">
         <div className="jobContainer__left">
@@ -82,15 +82,23 @@ export default class Job extends Component {
             <span className=""> to</span>
           </div>
           <div className="startRow">
-            <Field
-              text={convertDateToString(job.endDate)}
-              date={returnDate(job.endDate)}
-              editMode="reactCalendar"
-              handleChange={(value) =>
-                handleChange({ target: { value } }, 'endDate')
-              }
-              minDate={job.startDate}
-            />
+            {job.current ? (
+              <Field
+                text="Current"
+                editMode="display"
+                className="currentDisplay"
+              />
+            ) : (
+              <Field
+                text={convertDateToString(job.endDate)}
+                date={returnDate(job.endDate)}
+                editMode="reactCalendar"
+                handleChange={(value) =>
+                  handleChange({ target: { value } }, 'endDate')
+                }
+                minDate={job.startDate}
+              />
+            )}
           </div>
         </div>
         <div className="jobContainer__right cvText">
@@ -141,8 +149,16 @@ export default class Job extends Component {
               </li>
             ))}
           </ul>
-          {/* add container div and add button to delete job */}
           <div className="buttonContainer">
+            <AddButton
+              clickHandler={markCurrent}
+              buttonText="Current?"
+              className={
+                job.current
+                  ? 'currentButtonEnabled cvEditButton'
+                  : 'cvEditButton'
+              }
+            />
             <AddButton
               clickHandler={this.addTask}
               buttonText="Add responsibility"
@@ -162,5 +178,6 @@ export default class Job extends Component {
 Job.propTypes = {
   job: PropTypes.object.isRequired,
   deleteJob: PropTypes.func.isRequired,
-  handleChange: PropTypes.func.isRequired
+  handleChange: PropTypes.func.isRequired,
+  markCurrent: PropTypes.func
 };

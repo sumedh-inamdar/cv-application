@@ -16,18 +16,21 @@ export default class Experience extends Component {
         company: job.company,
         startDate: job.startDate,
         endDate: job.endDate,
-        id: job.id
+        id: job.id,
+        current: job.current
       })),
       currJob: {
         title: 'Title',
         company: 'Company',
         startDate: 'Start Date',
         endDate: 'End Date',
-        id: uniqid()
+        id: uniqid(),
+        current: false
       }
     };
     this.addJob = this.addJob.bind(this);
     this.deleteJob = this.deleteJob.bind(this);
+    this.toggleCurrent = this.toggleCurrent.bind(this);
   }
   addJob() {
     this.setState({
@@ -37,7 +40,8 @@ export default class Experience extends Component {
         company: 'Company',
         startDate: 'Start Date',
         endDate: 'End Date',
-        id: uniqid()
+        id: uniqid(),
+        current: false
       }
     });
   }
@@ -55,6 +59,13 @@ export default class Experience extends Component {
               [jobProperty]: event.target.value
             }
           : job
+      )
+    });
+  }
+  toggleCurrent(jobID) {
+    this.setState({
+      jobs: this.state.jobs.map((job) =>
+        job.id === jobID ? { ...job, current: !job.current } : job
       )
     });
   }
@@ -79,6 +90,7 @@ export default class Experience extends Component {
               handleChange={(event, jobProperty) =>
                 this.changeState(event, job.id, jobProperty)
               }
+              markCurrent={() => this.toggleCurrent(job.id)}
             />
           ))}
         </div>

@@ -107,7 +107,7 @@ Field.propTypes = {
   date: PropTypes.oneOfType([PropTypes.object, PropTypes.string]),
   year: PropTypes.string,
   editMode: PropTypes.string.isRequired,
-  handleChange: PropTypes.func.isRequired,
+  handleChange: PropTypes.func,
   handleHover: PropTypes.func,
   maxLength: PropTypes.number,
   className: PropTypes.string,
