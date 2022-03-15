@@ -78,6 +78,7 @@ export default class Job extends Component {
                 handleChange({ target: { value } }, 'startDate')
               }
               maxDate={returnDate(job.endDate)}
+              className="job__startDate"
             />
             <span className=""> to</span>
           </div>
@@ -100,6 +101,7 @@ export default class Job extends Component {
                   job.startDate instanceof Date ? job.startDate : undefined
                 }
                 maxDate={new Date()}
+                className="job__endDate"
               />
             )}
           </div>
@@ -109,6 +111,8 @@ export default class Job extends Component {
               id={job.id + '__checkbox'}
               className="currentCheckbox"
               name="current"
+              onChange={markCurrent}
+              checked={job.current}
             />
             <label htmlFor={job.id + '__checkbox'}>I currently work here</label>
           </div>
@@ -162,15 +166,6 @@ export default class Job extends Component {
             ))}
           </ul>
           <div className="buttonContainer">
-            <AddButton
-              clickHandler={markCurrent}
-              buttonText="Current?"
-              className={
-                job.current
-                  ? 'currentButtonEnabled cvEditButton editElement'
-                  : 'cvEditButton editElement'
-              }
-            />
             <AddButton
               clickHandler={this.addTask}
               buttonText="Add responsibility"

@@ -4,6 +4,7 @@
   width: clamp(400px, 816px, 100vw);
   min-height: 1056px;
   margin: 0px auto;
+  margin-bottom: 20px;
   box-shadow: 0px 0px 10px 10px rgba(0, 0, 0, 0.2);
   background-color: #eef0eb;
   

@@ -2,9 +2,6 @@
   padding-left: var(--CV-margin-border);
   margin-top: 30px;
 }
-#cvEducation .cvEditButton {
-  margin-left: auto;
-}
 #cvEducation select {
   font-family: inherit;
   font-style: inherit;

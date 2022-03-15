@@ -9,6 +9,10 @@ export default class App extends Component {
     return (
       <div id="app">
         <Header />
+        <p className="instructions">
+          Instructions: Click on any editable text field (highlighted in gold)
+          and export to PDF when ready.
+        </p>
         <ReactToPrint
           content={() => this.componentRef}
           trigger={() => {

@@ -59,8 +59,9 @@ export default class Degree extends Component {
               handleChange({ target: { value } }, 'startDate')
             }
             maxDate={returnDate(degree.endDate)}
+            className="degree__startDate"
           />
-          <span className=""> to</span>
+          <span className="degree__to"> to</span>
           {degree.current ? (
             <Field
               text="Current"
@@ -79,19 +80,24 @@ export default class Degree extends Component {
                 degree.startDate instanceof Date ? degree.startDate : undefined
               }
               maxDate={new Date()}
+              className="degree__endDate"
             />
           )}
         </div>
-        <div className="buttonContainer">
-          <AddButton
-            clickHandler={markCurrent}
-            buttonText="Current?"
-            className={
-              degree.current
-                ? 'currentButtonEnabled cvEditButton editElement'
-                : 'cvEditButton editElement'
-            }
+        <div className="startRow currentRow editElement">
+          <input
+            type="checkbox"
+            id={degree.id + '__checkbox'}
+            className="currentCheckbox"
+            name="current"
+            onChange={markCurrent}
+            checked={degree.current}
           />
+          <label htmlFor={degree.id + '__checkbox'}>
+            I currently work here
+          </label>
+        </div>
+        <div className="buttonContainer">
           <AddButton
             clickHandler={deleteDegree}
             buttonText="Remove Degree"

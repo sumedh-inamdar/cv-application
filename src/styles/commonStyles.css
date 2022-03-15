@@ -5,6 +5,27 @@
   --CV-input-padding: 4px;
   --CV-input-border: 2px;
 }
+html {
+  height: 100vh;
+}
+body {
+  height: 100%;
+}
+#root {
+  height: 100%;
+}
+#app {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  height: 100%;
+}
+.instructions {
+  font-size: 1.2rem;
+  font-weight: 500;
+  margin-bottom: 0px;
+}
 .sectionHeading {
   display: flex;
   justify-content: space-between;
@@ -63,9 +84,6 @@
   cursor: pointer;
   font-weight: 600;
 }
-.noDisplay {
-  display: none;
-}
 #pdfExportButton {
   width: fit-content;
   background-color: rgb(138, 122, 36, 0.5);
@@ -74,9 +92,8 @@
   border: none;
   border-radius: 3px;
   padding: 5px 5px;
-  margin-right: 10px;
   font-weight: 600;
-  margin-bottom: var(--CV-margin-border);
+  margin: 20px 0px;
 }
 #pdfExportButton:hover {
   background-color: rgb(138, 122, 36);
@@ -84,8 +101,23 @@
   font-weight: 600;
 }
 .currentRow {
-  margin-top: 10px;
+  background-color: rgb(138, 122, 36, 0.5);
+  color: #f4f9e9;
+  border-radius: 3px;
+}
+.currentRow:hover {
+  font-weight: 600;
+}
+.currentRow > *:hover {
+  cursor: pointer;
 }
 .currentCheckbox {
-  margin: 0.4rem;
+  margin: 0px 10px 0px 0px;
+}
+.startRow {
+  display: flex;
+  align-items: center;
+}
+.noDisplay {
+  display: none;
 }

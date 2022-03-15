@@ -19,14 +19,14 @@ export const degreeTypes = [
 
 export const exampleData = {
   CVHeader: {
-    firstName: 'Sumedh',
-    lastName: 'Inamdar',
+    firstName: 'Grace',
+    lastName: 'Hopper',
     title: 'Software Engineer',
-    website: 'github.com/sumedh-inamdar',
-    linkedin: 'linkedin.com/in/sinamdar',
-    email: 'sxxxxxxx@gmail.com',
-    phone: '408-555-1234',
-    location: 'San Francisco'
+    website: 'github.com/TheOdinProject',
+    linkedin: 'linkedin.com/in/grace-hopper-8a027032/',
+    email: 'grace_hopper@gmail.com',
+    phone: '480-555-1234',
+    location: 'New York'
   },
   Profile: {
     profile: `Aspiring front-end developer well versed in software engineering fundamentals. Seeking to utilize broad background with excellent technical, communication, and collaboration skills to thrive as an entry-level software engineer.`
@@ -76,19 +76,28 @@ export const exampleData = {
   Education: {
     degrees: [
       {
-        startDate: new Date(2010, 8),
-        endDate: new Date(2012, 4),
-        school: 'UT Austin',
-        major: 'Mechanical Engineering',
+        startDate: new Date(1930, 8),
+        endDate: new Date(1934, 4),
+        school: 'Yale University',
+        major: 'Mathematics',
+        degree: 'Ph.D',
+        id: uniqid(),
+        current: false
+      },
+      {
+        startDate: new Date(1928, 8),
+        endDate: new Date(1930, 4),
+        school: 'Yale University',
+        major: 'Mathematics',
         degree: 'M.S.',
         id: uniqid(),
         current: false
       },
       {
-        startDate: new Date(2005, 8),
-        endDate: new Date(2009, 4),
-        school: 'UC Berkeley',
-        major: 'Mechanical Engineering',
+        startDate: new Date(1924, 8),
+        endDate: new Date(1928, 4),
+        school: 'Vassar College',
+        major: 'Mathematics, Physics',
         degree: 'B.S.',
         id: uniqid(),
         current: false

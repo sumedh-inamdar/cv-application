@@ -5,14 +5,14 @@
   font-weight: 400;
   font-size: 1rem;
 }
-.degreeContainer > div {
+.degreeContainer > * {
   margin-bottom: 5px;
 }
 .degreeContainer .buttonContainer {
   margin-bottom: 10px;
   display: flex;
   flex-direction: row;
-  justify-content: flex-end;
+  justify-content: flex-start;
   align-items: center;
   padding-right: var(--CV-margin-border);
 }
@@ -22,17 +22,18 @@
 .degreeContainer__right {
   flex: 3 0 0;
 }
-.startRow {
-  display: flex;
+.degree__degree {
+  margin-right: 5px;
 }
-
 .degree__school {
   color: #284b63;
   font-weight: 600;
 }
-
-.currentButtonEnabled{
-  background-color: rgb(138, 122, 36);
-  cursor: pointer;
-  font-weight: 400;
+.degree__startDate, .degree__to {
+  margin-right: 5px;
+}
+.degreeContainer .currentRow {
+  width: fit-content;
+  padding: 5px;
+  margin-bottom: 5px;
 }

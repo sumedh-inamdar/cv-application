@@ -12,12 +12,8 @@
   font-weight: bold;
   
 }
-
-.startRow {
-  display: flex;
-}
-.startRow > * {
-  margin-right: 4px;
+.job__startDate {
+  margin-right: 5px;
 }
 
 /* Tasks */
@@ -45,4 +41,8 @@
   align-items: center;
   padding-right: var(--CV-margin-border);
   margin: 0px 5px;
+}
+.jobContainer .currentRow {
+  margin: 5px 20px 0px 0px;
+  padding: 5px 0px 5px 5px;
 }
