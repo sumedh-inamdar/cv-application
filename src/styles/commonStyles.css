@@ -66,6 +66,8 @@ body {
   border-radius: 3px;
   padding: 5px 5px;
   margin-right: 10px;
+  font-size: 1rem;
+  font-family: inherit;
 }
 .cvEditButton:hover {
   background-color: rgb(138, 122, 36);
@@ -94,6 +96,8 @@ body {
   padding: 5px 5px;
   font-weight: 600;
   margin: 20px 0px;
+  font-size: 1rem;
+  font-family: inherit;
 }
 #pdfExportButton:hover {
   background-color: rgb(138, 122, 36);
