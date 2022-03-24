@@ -5,26 +5,20 @@
   --CV-input-padding: 4px;
   --CV-input-border: 2px;
 }
-html {
-  height: 100vh;
-}
-body {
-  height: 100%;
-}
-#root {
-  height: 100%;
-}
+
 #app {
   display: flex;
   flex-direction: column;
   align-items: center;
   position: relative;
-  height: 100%;
 }
 .instructions {
   font-size: 1.2rem;
   font-weight: 500;
   margin-bottom: 0px;
+}
+.instructions__text {
+  font-weight: 400;
 }
 .sectionHeading {
   display: flex;
@@ -45,6 +39,7 @@ body {
 .trashIcon {
   margin: 0px 10px;
   color: rgb(138, 122, 36);
+  cursor: pointer;
 }
 .visHidden {
   visibility: hidden;

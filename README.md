@@ -16,6 +16,8 @@ Application that allows a user to create a CV. User may update any field that is
 
 ## To do list
 
+- [ ] Add ability to re-order skills / responsibilites
+
 ## Bugs to fix
 
 - [ ] Trash icon does not disappear after editing skill

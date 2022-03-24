@@ -1,5 +1,6 @@
 #cvHeader {
-  height: 300px;
+  /* flex: 1 0 300px; */
+  min-height: 300px;
   display: flex;
   flex-direction: column;
   color: #f4f9e9;
@@ -12,21 +13,26 @@
   flex: 1 0 0;
   flex-direction: column;
   justify-content: space-between;
-  padding: var(--CV-margin-border) 0px 0px var(--CV-margin-border);
+  padding: var(--CV-margin-border) 0px 10px var(--CV-margin-border);
 }
 #cvHeaderName {
   display: flex;
   flex-direction: column;
 }
+#cvHeaderName .fieldTextArea {
+  max-width: 189px;
+}
 #cvHeaderBottom {
   flex: 1 0 0;
   display: flex;
   flex-direction: column;
-  height: fit-content;
+  /* height: fit-content; */
   justify-content: space-between;
   padding-left: var(--CV-margin-border);
   padding-bottom: 10px;
-  /* border-bottom-right-radius: inherit; */
+}
+#cvHeaderBottom .fieldTextArea {
+  max-width: 180px;
 }
 .firstName,
 .lastName {
@@ -34,8 +40,14 @@
   font-size: 2rem;
   font-weight: 700;
 }
+div.firstName, div.lastName {
+  padding-right: var(--CV-margin-border);
+}
 .title {
   font-size: 1.2rem;
+}
+textarea.title {
+  max-width: 200px ;
 }
 div.title,
 form.title {
@@ -51,4 +63,7 @@ form.title {
 .contactInfo,
 .contactIcon {
   font-size: 0.85rem;
+}
+.contactInfo > .fieldDisp {
+  padding-right: var(--CV-margin-border);
 }

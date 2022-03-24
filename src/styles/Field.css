@@ -2,6 +2,7 @@
   width: fit-content;
   height: fit-content;
   line-height: 1.2;
+  word-break: break-word;
 }
 .fieldDisp:not(.currentDisplay):hover {
   cursor: text;
@@ -12,6 +13,7 @@
 }
 
 .fieldTextArea {
+  flex: 1 0 0;
   font-family: inherit;
   font-style: inherit;
   font-size: inherit;

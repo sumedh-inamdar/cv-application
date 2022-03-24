@@ -46,3 +46,10 @@
   margin: 5px 20px 0px 0px;
   padding: 5px 0px 5px 5px;
 }
+textarea.job__title,
+textarea.job__company {
+  max-width: 350px;
+}
+.tasksUL .fieldTextArea {
+  max-width: 321px;
+}

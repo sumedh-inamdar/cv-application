@@ -46,57 +46,61 @@ export default class Field extends Component {
       maxDate,
       minDate
     } = this.props;
+    const fieldDisplay = (
+      <FieldDisplay
+        text={text}
+        handleClick={() => this.handleClick(editMode)}
+        handleHover={handleHover}
+        className={className}
+        placeholder={placeholder}
+      />
+    );
+    const fieldTextArea = (
+      <FieldTextArea
+        text={text}
+        handleChange={handleChange}
+        handleSubmit={this.handleSubmit}
+        maxLength={maxLength}
+        className={className}
+        cols={cols}
+        rows={rows}
+        placeholder={placeholder}
+      />
+    );
+    const calendar = (
+      <Calendar
+        value={date}
+        onChange={(value) => {
+          handleChange(value);
+          this.handleSubmit();
+        }}
+        maxDetail="year"
+        minDetail="decade"
+        maxDate={maxDate}
+        minDate={minDate}
+        formatMonth={(locale, date) => format(date, 'MMM')}
+      />
+    );
+    const dropdown = (
+      <Dropdown
+        value={text}
+        options={options}
+        onChange={(value) => {
+          handleChange(value);
+          this.handleSubmit();
+        }}
+      />
+    );
 
     switch (this.state.mode) {
       case 'display':
-        return (
-          <FieldDisplay
-            text={text}
-            handleClick={() => this.handleClick(editMode)}
-            handleHover={handleHover}
-            className={className}
-            placeholder={placeholder}
-          />
-        );
+        return fieldDisplay;
       case 'textarea':
-        return (
-          <FieldTextArea
-            text={text}
-            handleChange={handleChange}
-            handleSubmit={this.handleSubmit}
-            maxLength={maxLength}
-            className={className}
-            cols={cols}
-            rows={rows}
-            placeholder={placeholder}
-          />
-        );
+        return fieldTextArea;
       case 'reactCalendar':
-        return (
-          <Calendar
-            value={date}
-            onChange={(value) => {
-              handleChange(value);
-              this.handleSubmit();
-            }}
-            maxDetail="year"
-            minDetail="decade"
-            maxDate={maxDate}
-            minDate={minDate}
-            formatMonth={(locale, date) => format(date, 'MMM')}
-          />
-        );
+        return calendar;
       case 'dropdown':
-        return (
-          <Dropdown
-            value={text}
-            options={options}
-            onChange={(value) => {
-              handleChange(value);
-              this.handleSubmit();
-            }}
-          />
-        );
+        return dropdown;
     }
   }
 }

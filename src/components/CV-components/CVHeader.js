@@ -45,7 +45,7 @@ export default class CVHeader extends Component {
               handleChange={(event) => this.changeState(event, 'firstName')}
               className="firstName"
               maxLength={15}
-              cols={10}
+              cols={9}
               rows={1}
               placeholder="First Name"
             />
@@ -55,7 +55,7 @@ export default class CVHeader extends Component {
               handleChange={(event) => this.changeState(event, 'lastName')}
               className="lastName"
               maxLength={15}
-              cols={10}
+              cols={9}
               rows={1}
               placeholder="Last Name"
             />

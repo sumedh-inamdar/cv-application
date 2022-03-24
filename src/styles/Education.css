@@ -10,3 +10,10 @@
   border: none;
   width: 100px;
 }
+
+textarea.degree__major {
+  max-width: 161px;
+}
+textarea.degree__school {
+  max-width: 203px;
+}

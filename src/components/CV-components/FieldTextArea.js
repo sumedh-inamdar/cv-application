@@ -3,6 +3,10 @@ import PropTypes from 'prop-types';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCheck } from '@fortawesome/free-solid-svg-icons';
 
+function auto_resize(element, offset) {
+  element.style.height = element.scrollHeight + offset + 'px';
+}
+
 export default class FieldTextArea extends Component {
   constructor(props) {
     super(props);
@@ -10,7 +14,6 @@ export default class FieldTextArea extends Component {
   render() {
     const {
       text,
-      rows,
       cols,
       handleChange,
       handleSubmit,
@@ -34,8 +37,8 @@ export default class FieldTextArea extends Component {
           maxLength={maxLength}
           className={className + ' fieldTextArea'}
           placeholder={placeholder}
-          rows={rows}
           cols={cols}
+          onInput={(e) => auto_resize(e.target)}
         />
         <FontAwesomeIcon
           icon={faCheck}
@@ -45,6 +48,10 @@ export default class FieldTextArea extends Component {
         />
       </form>
     );
+  }
+  componentDidMount() {
+    const element = document.querySelector('textarea.' + this.props.className);
+    auto_resize(element, 1);
   }
 }
 FieldTextArea.propTypes = {

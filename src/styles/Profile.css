@@ -16,3 +16,6 @@ form.profile {
 div.profile {
   margin-right: var(--CV-margin-border);
 }
+textarea.profile {
+  max-width: 485px;
+}
