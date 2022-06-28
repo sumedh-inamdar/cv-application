@@ -21,6 +21,12 @@ export default class Skills extends Component {
     this.toggleDeleteSkill = this.toggleDeleteSkill.bind(this);
     this.deleteSkill = this.deleteSkill.bind(this);
   }
+  componentDidUpdate() {
+    localStorage.setItem(
+      'skills',
+      JSON.stringify(this.state.skills.map((skill) => skill.text))
+    );
+  }
   changeState(event, skillID) {
     this.setState({
       skills: this.state.skills.map((skill) =>

@@ -59,7 +59,7 @@ FieldTextArea.propTypes = {
   rows: PropTypes.number,
   placeholder: PropTypes.string,
   cols: PropTypes.number,
-  handleChange: PropTypes.func.isRequired,
+  handleChange: PropTypes.func,
   handleSubmit: PropTypes.func.isRequired,
   maxLength: PropTypes.number,
   className: PropTypes.string

@@ -6,19 +6,31 @@ import '../../styles/Experience.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faAdd } from '@fortawesome/free-solid-svg-icons';
 
+function getLocalStorageJobs(array) {
+  return array?.map((job) => ({
+    ...job,
+    startDate: Date.parse(job.startDate)
+      ? new Date(job.startDate)
+      : job.startDate,
+    endDate: Date.parse(job.endDate) ? new Date(job.endDate) : job.endDate
+  }));
+}
+
 export default class Experience extends Component {
   constructor(props) {
     super(props);
     const data = exampleData.Experience;
     this.state = {
-      jobs: data.jobs.map((job) => ({
-        title: job.title,
-        company: job.company,
-        startDate: job.startDate,
-        endDate: job.endDate,
-        id: job.id,
-        current: job.current
-      })),
+      jobs:
+        getLocalStorageJobs(JSON.parse(localStorage.getItem('experience'))) ||
+        data.jobs.map((job) => ({
+          title: job.title,
+          company: job.company,
+          startDate: job.startDate,
+          endDate: job.endDate,
+          id: job.id,
+          current: job.current
+        })),
       currJob: {
         title: 'Title',
         company: 'Company',
@@ -31,6 +43,11 @@ export default class Experience extends Component {
     this.addJob = this.addJob.bind(this);
     this.deleteJob = this.deleteJob.bind(this);
     this.toggleCurrent = this.toggleCurrent.bind(this);
+    this.changeState = this.changeState.bind(this);
+    localStorage.setItem('experience', JSON.stringify(this.state.jobs));
+  }
+  componentDidUpdate() {
+    localStorage.setItem('experience', JSON.stringify(this.state.jobs));
   }
   addJob() {
     this.setState({

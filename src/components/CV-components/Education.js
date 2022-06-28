@@ -6,20 +6,34 @@ import { exampleData } from '../../utilities/constants';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faAdd } from '@fortawesome/free-solid-svg-icons';
 
+function getLocalStorageDegrees(array) {
+  return array?.map((degree) => ({
+    ...degree,
+    startDate: Date.parse(degree.startDate)
+      ? new Date(degree.startDate)
+      : degree.startDate,
+    endDate: Date.parse(degree.endDate)
+      ? new Date(degree.endDate)
+      : degree.endDate
+  }));
+}
+
 export default class Education extends Component {
   constructor(props) {
     super(props);
     const data = exampleData.Education.degrees;
     this.state = {
-      degrees: data.map((degree) => ({
-        startDate: degree.startDate,
-        endDate: degree.endDate,
-        school: degree.school,
-        major: degree.major,
-        degree: degree.degree,
-        id: degree.id,
-        current: degree.current
-      })),
+      degrees:
+        getLocalStorageDegrees(JSON.parse(localStorage.getItem('degrees'))) ||
+        data.map((degree) => ({
+          startDate: degree.startDate,
+          endDate: degree.endDate,
+          school: degree.school,
+          major: degree.major,
+          degree: degree.degree,
+          id: degree.id,
+          current: degree.current
+        })),
       currDegree: {
         startDate: 'Start Date',
         endDate: 'End Date',
@@ -34,6 +48,10 @@ export default class Education extends Component {
     this.deleteDegree = this.deleteDegree.bind(this);
     this.changeState = this.changeState.bind(this);
     this.toggleCurrent = this.toggleCurrent.bind(this);
+    localStorage.setItem('degrees', JSON.stringify(this.state.degrees));
+  }
+  componentDidUpdate() {
+    localStorage.setItem('degrees', JSON.stringify(this.state.degrees));
   }
   addDegree() {
     this.setState({

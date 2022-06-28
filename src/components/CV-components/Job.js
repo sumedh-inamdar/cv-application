@@ -25,11 +25,24 @@ export default class Job extends Component {
     super(props);
     const data = exampleData.Experience.jobs;
     this.state = {
-      tasks: getTasks(data, this.props.job.id),
+      tasks:
+        JSON.parse(localStorage.getItem(`${this.props.job.id}_tasks`)) ||
+        getTasks(data, this.props.job.id),
       currTask: { name: 'List responsibility', id: uniqid() }
     };
     this.addTask = this.addTask.bind(this);
+    this.changeState = this.changeState.bind(this);
     this.deleteTask = this.deleteTask.bind(this);
+    localStorage.setItem(
+      `${this.props.job.id}_tasks`,
+      JSON.stringify(this.state.tasks)
+    );
+  }
+  componentDidUpdate() {
+    localStorage.setItem(
+      `${this.props.job.id}_tasks`,
+      JSON.stringify(this.state.tasks)
+    );
   }
   addTask() {
     this.setState({

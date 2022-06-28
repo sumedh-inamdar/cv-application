@@ -17,6 +17,7 @@ export default class Profile extends Component {
     this.setState({
       [property]: event.target.value
     });
+    localStorage.setItem(property, event.target.value);
   }
   render() {
     return (

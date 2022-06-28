@@ -1,4 +1,4 @@
-# CV Application
+# CV Maker
 
 Application that allows a user to create a CV. User may update any field that is highlighted in gold upon hover and export their CV as a PDF. Additional Jobs, Skills, and Education components may be added by clicking the gold plus icon in their respective sections. Degree types can be selected from a select dropdown element and Dates may be selected using the React-Calendar dropdown.
 
@@ -21,5 +21,7 @@ Application that allows a user to create a CV. User may update any field that is
 ## Bugs to fix
 
 - [ ] Trash icon does not disappear after editing skill
+- [ ] Clicking outside of date picker does not close it
+- [ ] No margin on right hand side of university name
 
 ## Future work

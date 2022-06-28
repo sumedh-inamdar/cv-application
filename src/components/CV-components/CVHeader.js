@@ -9,7 +9,7 @@ import {
   faLocationPin,
   faPhone
 } from '@fortawesome/free-solid-svg-icons';
-import { faLinkedin } from '@fortawesome/free-brands-svg-icons';
+import { faGithub, faLinkedin } from '@fortawesome/free-brands-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { exampleData } from '../../utilities/constants';
 
@@ -22,6 +22,7 @@ export default class CVHeader extends Component {
       lastName: data.lastName,
       title: data.title,
       website: data.website,
+      github: data.github,
       linkedin: data.linkedin,
       email: data.email,
       phone: data.phone,
@@ -33,6 +34,7 @@ export default class CVHeader extends Component {
     this.setState({
       [property]: event.target.value
     });
+    localStorage.setItem(property, event.target.value);
   }
   render() {
     return (
@@ -76,7 +78,7 @@ export default class CVHeader extends Component {
             <FontAwesomeIcon
               icon={faGlobe}
               className="contactIcon"
-              title="github / website"
+              title="website"
             />
             <Field
               text={this.state.website}
@@ -86,7 +88,24 @@ export default class CVHeader extends Component {
               className="websiteInfo"
               cols={23}
               rows={1}
-              placeholder="github / website"
+              placeholder="website"
+            />
+          </div>
+          <div className="flexRow contactInfo" id="githubLink">
+            <FontAwesomeIcon
+              icon={faGithub}
+              className="contactIcon"
+              title="github"
+            />
+            <Field
+              text={this.state.github}
+              editMode="textarea"
+              handleChange={(event) => this.changeState(event, 'github')}
+              maxLength={50}
+              className="githubInfo"
+              cols={23}
+              rows={1}
+              placeholder="github"
             />
           </div>
           <div className="flexRow contactInfo" id="linkedIn">

@@ -19,20 +19,25 @@ export const degreeTypes = [
 
 export const exampleData = {
   CVHeader: {
-    firstName: 'Grace',
-    lastName: 'Hopper',
-    title: 'Software Engineer',
-    website: 'github.com/TheOdinProject',
-    linkedin: 'linkedin.com/in/grace-hopper-8a027032/',
-    email: 'grace_hopper@gmail.com',
-    phone: '480-555-1234',
-    location: 'New York'
+    firstName: localStorage.getItem('firstName') || 'Grace',
+    lastName: localStorage.getItem('lastName') || 'Hopper',
+    title: localStorage.getItem('title') || 'Software Engineer',
+    website: localStorage.getItem('website') || 'theodinproject.com',
+    github: localStorage.getItem('github') || 'github.com/TheOdinProject',
+    linkedin:
+      localStorage.getItem('linkedin') ||
+      'linkedin.com/in/grace-hopper-8a027032/',
+    email: localStorage.getItem('email') || 'grace_hopper@gmail.com',
+    phone: localStorage.getItem('phone') || '480-555-1234',
+    location: localStorage.getItem('location') || 'New York'
   },
   Profile: {
-    profile: `Aspiring front-end developer well versed in software engineering fundamentals. Seeking to utilize broad background with excellent technical, communication, and collaboration skills to thrive as an entry-level software engineer.`
+    profile:
+      localStorage.getItem('profile') ||
+      `Aspiring front-end developer well versed in software engineering fundamentals. Seeking to utilize broad background with excellent technical, communication, and collaboration skills to thrive as an entry-level software engineer.`
   },
   Skills: {
-    skills: [
+    skills: JSON.parse(localStorage.getItem('skills')) || [
       'Data structures & Algorithms',
       'Javascript (React)',
       'HTML / CSS',
